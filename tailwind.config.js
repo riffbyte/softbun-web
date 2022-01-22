@@ -6,9 +6,8 @@ module.exports = {
             colors: {
                 onyx: '#1c1d22',
                 aquamarine: '#47e5bc',
-                primary: '#47e5bc',
-                'mint-cream': '#eefcf8',
-                snow: '#fff2f1',
+                'aquamarine-darker': '#2fdaaa',
+                snow: '#fdfdff',
             },
         },
     },
