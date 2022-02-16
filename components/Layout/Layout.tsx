@@ -1,12 +1,12 @@
 import classNames from 'classnames';
 import Head from 'next/head';
-import { FunctionComponent } from 'react';
+import type { PropsWithChildren } from 'react';
 
 interface LayoutProps {
     centered?: boolean;
 }
 
-const Layout: FunctionComponent<LayoutProps> = ({ children, centered }) => {
+export function Layout({ children, centered }: PropsWithChildren<LayoutProps>) {
     return (
         <div className="root-container">
             <Head>
@@ -52,6 +52,4 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, centered }) => {
             </footer>
         </div>
     );
-};
-
-export default Layout;
+}

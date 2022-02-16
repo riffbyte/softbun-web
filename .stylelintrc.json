@@ -1,17 +1,7 @@
 {
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-sass-guidelines",
-    "stylelint-config-prettier",
-    "stylelint-config-tailwindcss"
-  ],
+  "extends": ["@prezly/eslint-config/stylelint", "stylelint-config-tailwindcss"],
   "rules": {
-    "order/properties-alphabetical-order": null,
-    "indentation": null,
-    "string-quotes": null,
-    "color-function-notation": null,
-    "max-nesting-depth": 2,
-    "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["global", "export"] }],
+    "selector-class-pattern": null,
     "scss/at-rule-no-unknown": [
       true,
       {

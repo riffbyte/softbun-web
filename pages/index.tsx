@@ -1,9 +1,8 @@
-import type { NextPage } from 'next';
 import { Coffee } from 'react-feather';
 
 import { Layout } from '@/components';
 
-const Home: NextPage = () => {
+function Home() {
     return (
         <Layout centered>
             <div className="text-center text-gray-900 dark:text-white">
@@ -20,6 +19,6 @@ const Home: NextPage = () => {
             </div>
         </Layout>
     );
-};
+}
 
 export default Home;
