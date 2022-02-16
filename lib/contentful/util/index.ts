@@ -1,0 +1,1 @@
+export { getClientParams } from './getClientParams';

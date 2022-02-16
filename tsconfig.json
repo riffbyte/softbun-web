@@ -19,7 +19,9 @@
       "@/components": ["components"],
       "@/hooks": ["hooks"],
       "@/public/*": ["public/*"],
-      "@/utils": ["utils"]
+      "@/utils": ["utils"],
+      "@/lib": ["lib"],
+      "@/lib/*": ["lib/*"]
     }
   },
   "include": [

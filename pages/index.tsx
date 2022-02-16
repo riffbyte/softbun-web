@@ -1,10 +1,16 @@
+import type { GetStaticPropsContext, GetStaticPropsResult } from 'next';
 import { Coffee } from 'react-feather';
 
 import { Layout } from '@/components';
+import { PortfolioApi } from '@/lib/contentful';
 
-function Home() {
+interface HomeProps {
+    portfolioItems: any[];
+}
+
+function Home({ portfolioItems }: HomeProps) {
     return (
-        <Layout centered>
+        <Layout>
             <div className="text-center text-gray-900 dark:text-white">
                 <Coffee
                     className="mx-auto mb-4 text-aquamarine-darker dark:text-aquamarine animate-pulse"
@@ -16,9 +22,34 @@ function Home() {
                     Some cool stuff brewing
                     <span className="animated-ellipsis" />
                 </h2>
+
+                <div>
+                    {portfolioItems.map((item) => (
+                        <div key={item.slug} className="text-left">
+                            <img src={item.coverImage.fields.file.url} className="w-80" />
+                            <h2>{item.title}</h2>
+                            <p>{item.description}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         </Layout>
     );
+}
+
+export async function getStaticProps({
+    preview,
+}: GetStaticPropsContext): Promise<GetStaticPropsResult<HomeProps>> {
+    const api = new PortfolioApi(preview);
+    const portfolioItems = await api.getPortfolioItems();
+
+    console.log({ portfolioItems });
+
+    return {
+        props: {
+            portfolioItems,
+        },
+    };
 }
 
 export default Home;
