@@ -19,6 +19,7 @@ export class BaseApi {
         return this.client.getEntries<T>(...args);
     }
 
+    // eslint-disable-next-line class-methods-use-this
     protected getItems<T = any>(entries: EntryCollection<T>): T[] {
         if (entries && entries.items && entries.items.length > 0) {
             return entries.items.map((item) => item.fields);

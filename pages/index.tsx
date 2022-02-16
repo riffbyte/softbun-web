@@ -1,4 +1,5 @@
 import type { GetStaticPropsContext, GetStaticPropsResult } from 'next';
+import Image from 'next/image';
 import { Coffee } from 'react-feather';
 
 import { Layout } from '@/components';
@@ -26,7 +27,11 @@ function Home({ portfolioItems }: HomeProps) {
                 <div>
                     {portfolioItems.map((item) => (
                         <div key={item.slug} className="text-left">
-                            <img src={item.coverImage.fields.file.url} className="w-80" />
+                            <Image
+                                src={item.coverImage.fields.file.url}
+                                alt={item.title}
+                                className="w-80"
+                            />
                             <h2>{item.title}</h2>
                             <p>{item.description}</p>
                         </div>
@@ -42,8 +47,6 @@ export async function getStaticProps({
 }: GetStaticPropsContext): Promise<GetStaticPropsResult<HomeProps>> {
     const api = new PortfolioApi(preview);
     const portfolioItems = await api.getPortfolioItems();
-
-    console.log({ portfolioItems });
 
     return {
         props: {
