@@ -11,8 +11,16 @@ const previewParams: CreateClientParams = {
     host: 'preview.contentful.com',
 };
 
+function isPreviewEnvironment() {
+    if (process.env.VERCEL_ENV === 'development' || process.env.VERCEL_ENV === 'preview') {
+        return true;
+    }
+
+    return process.env.NODE_ENV !== 'production';
+}
+
 export function getClientParams(preview: boolean): CreateClientParams {
-    if (preview === true) {
+    if (preview === true || isPreviewEnvironment()) {
         return previewParams;
     }
 
