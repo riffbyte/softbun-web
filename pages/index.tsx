@@ -38,9 +38,7 @@ function Home({ portfolioItems }: HomeProps) {
                                 />
                             </div>
                             <h2 className="text-xl mb-3">{item.title}</h2>
-                            <p className="mb-3">
-                                <ReactMarkdown>{item.description}</ReactMarkdown>
-                            </p>
+                            <ReactMarkdown className="mb-3">{item.description}</ReactMarkdown>
 
                             {item.contentfulMetadata.tags.length > 0 && (
                                 <div className="flex space-x-2">
