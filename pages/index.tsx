@@ -4,7 +4,7 @@ import { Coffee } from 'react-feather';
 import ReactMarkdown from 'react-markdown';
 
 import { Layout } from '@/components';
-import { PortfolioApi, renderRichText } from '@/lib/contentful';
+import { PortfolioApi } from '@/lib/contentful';
 import type { PortfolioItem } from '@/lib/contentful';
 
 interface HomeProps {
@@ -42,7 +42,18 @@ function Home({ portfolioItems }: HomeProps) {
                                 <ReactMarkdown>{item.description}</ReactMarkdown>
                             </p>
 
-                            <div>{renderRichText(item.body)}</div>
+                            {item.contentfulMetadata.tags.length > 0 && (
+                                <div className="flex space-x-2">
+                                    {item.contentfulMetadata.tags.map((tag) => (
+                                        <div
+                                            key={tag.id}
+                                            className="px-2 py-1 text-sm rounded-md bg-gray-700"
+                                        >
+                                            {tag.name}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>

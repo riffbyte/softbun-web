@@ -14,8 +14,16 @@ interface BlockAssetLink {
     description: string;
 }
 
+interface Tag {
+    id: string;
+    name: string;
+}
+
 export interface PortfolioItem {
     sys: { id: string };
+    contentfulMetadata: {
+        tags: Tag[];
+    };
     title: string;
     slug: string;
     description: string;
@@ -51,6 +59,12 @@ export class PortfolioApi extends BaseApi {
                         items {
                             sys {
                                 id
+                            }
+                            contentfulMetadata {
+                                tags {
+                                    id
+                                    name
+                                }
                             }
                             title
                             slug
