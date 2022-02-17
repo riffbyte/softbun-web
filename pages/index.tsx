@@ -1,12 +1,14 @@
 import type { GetStaticPropsContext, GetStaticPropsResult } from 'next';
 import Image from 'next/image';
 import { Coffee } from 'react-feather';
+import ReactMarkdown from 'react-markdown';
 
 import { Layout } from '@/components';
-import { PortfolioApi } from '@/lib/contentful';
+import { PortfolioApi, renderRichText } from '@/lib/contentful';
+import type { PortfolioItem } from '@/lib/contentful';
 
 interface HomeProps {
-    portfolioItems: any[];
+    portfolioItems: PortfolioItem[];
 }
 
 function Home({ portfolioItems }: HomeProps) {
@@ -27,13 +29,20 @@ function Home({ portfolioItems }: HomeProps) {
                 <div>
                     {portfolioItems.map((item) => (
                         <div key={item.slug} className="text-left">
-                            <Image
-                                src={item.coverImage.fields.file.url}
-                                alt={item.title}
-                                className="w-80"
-                            />
-                            <h2>{item.title}</h2>
-                            <p>{item.description}</p>
+                            <div className="relative w-80">
+                                <Image
+                                    src={item.coverImage.url}
+                                    alt={item.title}
+                                    width={item.coverImage.width}
+                                    height={item.coverImage.height}
+                                />
+                            </div>
+                            <h2 className="text-xl mb-3">{item.title}</h2>
+                            <p className="mb-3">
+                                <ReactMarkdown>{item.description}</ReactMarkdown>
+                            </p>
+
+                            <div>{renderRichText(item.body)}</div>
                         </div>
                     ))}
                 </div>
@@ -46,11 +55,11 @@ export async function getStaticProps({
     preview,
 }: GetStaticPropsContext): Promise<GetStaticPropsResult<HomeProps>> {
     const api = new PortfolioApi(preview);
-    const portfolioItems = await api.getPortfolioItems();
+    const { items } = await api.getPortfolioItems();
 
     return {
         props: {
-            portfolioItems,
+            portfolioItems: items,
         },
     };
 }

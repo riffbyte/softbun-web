@@ -1,2 +1,2 @@
-export { BaseApi } from './base';
-export { PortfolioApi } from './portfolio';
+export * from './api';
+export * from './renderRichText';

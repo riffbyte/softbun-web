@@ -4,6 +4,9 @@ const nextConfig = {
     eslint: {
         dirs: ['components', 'lib', 'pages'],
     },
+    images: {
+        domains: ['images.ctfassets.net'],
+    },
 };
 
 module.exports = nextConfig;

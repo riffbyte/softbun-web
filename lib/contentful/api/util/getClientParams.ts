@@ -1,14 +1,16 @@
-import type { CreateClientParams } from 'contentful';
+interface ContentfulClientParams {
+    space: string;
+    accessToken: string;
+}
 
-const productionParams: CreateClientParams = {
+const productionParams: ContentfulClientParams = {
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 };
 
-const previewParams: CreateClientParams = {
+const previewParams: ContentfulClientParams = {
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
-    host: 'preview.contentful.com',
 };
 
 function isPreviewEnvironment() {
@@ -19,7 +21,7 @@ function isPreviewEnvironment() {
     return process.env.NODE_ENV !== 'production';
 }
 
-export function getClientParams(preview: boolean): CreateClientParams {
+export function getClientParams(preview: boolean): ContentfulClientParams {
     if (preview === true || isPreviewEnvironment()) {
         return previewParams;
     }
