@@ -1,55 +1,51 @@
 import { gql } from '@apollo/client';
-import type { Document } from '@contentful/rich-text-types';
+
+import type { Asset, EntryCollection, EntryWithBody } from '../types';
 
 import { BaseApi } from './base';
 
-interface BlockAssetLink {
-    sys: {
-        id: string;
-    };
-    url: string;
-    title: string;
-    width: number;
-    height: number;
-    description: string;
-}
-
-interface Tag {
-    id: string;
-    name: string;
-}
-
-export interface PortfolioItem {
-    sys: { id: string };
-    contentfulMetadata: {
-        tags: Tag[];
-    };
+export interface PortfolioItem extends EntryWithBody {
     title: string;
     slug: string;
     description: string;
-    coverImage: {
-        url: string;
-        width: number;
-        height: number;
-    };
-    body: {
-        json: Document;
-        links: {
-            assets: {
-                block: BlockAssetLink[];
-            };
-        };
-    };
+    coverImage: Asset;
 }
 
 interface PortfolioItemsData {
-    portfolioItemCollection: {
-        total: number;
-        items: PortfolioItem[];
-    };
+    portfolioItemCollection: EntryCollection<PortfolioItem>;
 }
 
 export class PortfolioApi extends BaseApi {
+    // TODO: Debug this
+    // protected ENTRY_BODY_FIELDS = gql`
+    //     fragment EntryBodyFields on PortfolioItem {
+    //         body {
+    //             json
+    //             links {
+    //                 entries {
+    //                     inline {
+    //                         sys {
+    //                             id
+    //                         }
+    //                         __typename
+    //                     }
+    //                     block {
+    //                         sys {
+    //                             id
+    //                         }
+    //                         __typename
+    //                     }
+    //                 }
+    //                 assets {
+    //                     block {
+    //                         ${this.ASSET_FIELDS}
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // `;
+
     async getPortfolioItems() {
         const { data } = await this.client.query<PortfolioItemsData>({
             query: gql`
@@ -57,39 +53,12 @@ export class PortfolioApi extends BaseApi {
                     portfolioItemCollection(limit: 10) {
                         total
                         items {
-                            sys {
-                                id
-                            }
-                            contentfulMetadata {
-                                tags {
-                                    id
-                                    name
-                                }
-                            }
+                            ${this.CORE_ENTRY_FIELDS}
                             title
                             slug
                             description
                             coverImage {
-                                url
-                                width
-                                height
-                            }
-                            body {
-                                json
-                                links {
-                                    assets {
-                                        block {
-                                            sys {
-                                                id
-                                            }
-                                            url
-                                            title
-                                            width
-                                            height
-                                            description
-                                        }
-                                    }
-                                }
+                                ${this.ASSET_FIELDS}
                             }
                         }
                     }
