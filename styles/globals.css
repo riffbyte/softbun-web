@@ -22,27 +22,27 @@
 .animated-ellipsis::after {
     display: inline-block;
     animation: ellipsis steps(1, end) 2s infinite;
-    content: '';
+    content: "";
 }
 
 @keyframes ellipsis {
     0% {
-        content: '';
+        content: "";
     }
 
     25% {
-        content: '.';
+        content: ".";
     }
 
     50% {
-        content: '..';
+        content: "..";
     }
 
     75% {
-        content: '...';
+        content: "...";
     }
 
     100% {
-        content: '';
+        content: "";
     }
 }

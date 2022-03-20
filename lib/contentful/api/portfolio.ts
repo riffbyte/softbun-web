@@ -15,6 +15,10 @@ interface PortfolioItemsData {
     portfolioItemCollection: EntryCollection<PortfolioItem>;
 }
 
+interface GetPortfolioItemsOptions {
+    featured?: boolean;
+}
+
 export class PortfolioApi extends BaseApi {
     // TODO: Debug this
     // protected ENTRY_BODY_FIELDS = gql`
@@ -46,11 +50,13 @@ export class PortfolioApi extends BaseApi {
     //     }
     // `;
 
-    async getPortfolioItems() {
+    async getPortfolioItems({ featured }: GetPortfolioItemsOptions = {}) {
+        const whereClause = featured ? '{ featured: true }' : '{ featured_not: true }';
+
         const { data } = await this.client.query<PortfolioItemsData>({
             query: gql`
                 query PortfolioItems {
-                    portfolioItemCollection(limit: 10) {
+                    portfolioItemCollection(limit: 10, where: ${whereClause}) {
                         total
                         items {
                             ${this.CORE_ENTRY_FIELDS}
