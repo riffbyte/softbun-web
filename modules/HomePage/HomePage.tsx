@@ -1,14 +1,15 @@
 import { Section } from '@/components';
-import type { PortfolioItem } from '@/lib/contentful';
+import type { CareerItem, PortfolioItem } from '@/lib/contentful';
 
 import { FeaturedPortfolioItems } from './FeaturedPortfolioItems';
 
 interface Props {
     featuredPortfolioItems: PortfolioItem[];
     otherPortfolioItems: PortfolioItem[];
+    careerItems: CareerItem[];
 }
 
-export function HomePage({ featuredPortfolioItems, otherPortfolioItems }: Props) {
+export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerItems }: Props) {
     return (
         <>
             <Section expanded>
@@ -43,9 +44,13 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems }: Props)
             </Section>
             <Section title="My working career">
                 <ul>
-                    <li>Software Engineer @ Prezly. 2021 - Present</li>
-                    <li>Senior Engineer @ Anyway Labs. 2017 - 2021</li>
-                    <li>Freelance developer @ Agente Studio. 2016 - 2020</li>
+                    {careerItems.map((item) => (
+                        <li key={item.sys.id}>
+                            {item.position} @ {item.company}.{' '}
+                            {new Date(item.startedAt).getFullYear()} -{' '}
+                            {item.finishedAt ? new Date(item.finishedAt).getFullYear() : 'Present'}
+                        </li>
+                    ))}
                 </ul>
             </Section>
             <Section title="Some stuff I made recently">

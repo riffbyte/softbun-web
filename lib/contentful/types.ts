@@ -30,17 +30,19 @@ export interface Asset extends Entry {
     height: number;
 }
 
-export interface EntryWithBody extends Entry {
-    body: {
-        json: Document;
-        links: {
-            entries: {
-                block: Entry[];
-                inline: Entry[];
-            };
-            assets: {
-                block: Asset[];
-            };
+export interface RichText {
+    json: Document;
+    links: {
+        entries: {
+            block: Entry[];
+            inline: Entry[];
+        };
+        assets: {
+            block: Asset[];
         };
     };
+}
+
+export interface EntryWithBody extends Entry {
+    body: RichText;
 }
