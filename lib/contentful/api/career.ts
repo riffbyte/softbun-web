@@ -21,11 +21,12 @@ export class CareerApi extends BaseApi {
     async getCareerItems() {
         const { data } = await this.client.query<CareerItemsData>({
             query: gql`
+                ${this.CORE_ENTRY_FIELDS_FRAGMENT}
                 query CareerItems {
                     careerItemCollection(limit: 10) {
                         total
                         items {
-                            ${this.CORE_ENTRY_FIELDS}
+                            ...CoreEntryFields
                             position
                             company
                             companyUrl

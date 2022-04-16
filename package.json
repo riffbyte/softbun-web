@@ -13,7 +13,8 @@
     "prettier:fix": "npm run prettier -- --write --no-list-different",
     "typecheck": "tsc --noEmit --incremental",
     "check": "npm run lint && npm run typecheck && npm run lint-styles",
-    "stylelint-check": "stylelint-config-prettier-check"
+    "stylelint-check": "stylelint-config-prettier-check",
+    "generate-gql-types": "node generate-gql-types.js"
   },
   "dependencies": {
     "@apollo/client": "^3.5.9",
@@ -36,6 +37,7 @@
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
     "autoprefixer": "^10.4.2",
+    "dotenv": "^16.0.0",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
     "stylelint": "^14.2.0",

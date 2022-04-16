@@ -1,7 +1,7 @@
 import { ApolloClient, gql, InMemoryCache } from '@apollo/client';
 import type { NormalizedCacheObject } from '@apollo/client';
 
-import { getClientParams } from './util';
+import { fragmentTypes, getClientParams } from './util';
 
 export class BaseApi {
     protected client: ApolloClient<NormalizedCacheObject>;
@@ -11,37 +11,41 @@ export class BaseApi {
 
         this.client = new ApolloClient({
             uri: `https://graphql.contentful.com/content/v1/spaces/${space}`,
+            ssrMode: true,
             headers: {
                 Authorization: `Bearer ${accessToken}`,
             },
-            cache: new InMemoryCache(),
+            cache: new InMemoryCache({ possibleTypes: fragmentTypes }),
         });
     }
 
-    // TODO: Figure out why fragments don't work as expected
-    protected CORE_ENTRY_FIELDS = `
-        sys {
-            id
-        }
-        contentfulMetadata {
-            tags {
+    protected CORE_ENTRY_FIELDS_FRAGMENT = gql`
+        fragment CoreEntryFields on Entry {
+            sys {
                 id
-                name
+            }
+            contentfulMetadata {
+                tags {
+                    id
+                    name
+                }
             }
         }
     `;
 
-    protected ASSET_FIELDS = `
-        sys {
-            id
+    protected ASSET_FIELDS_FRAGMENT = gql`
+        fragment AssetFields on Asset {
+            sys {
+                id
+            }
+            url
+            size
+            fileName
+            title
+            width
+            height
+            description
+            contentType
         }
-        url
-        size
-        fileName
-        title
-        width
-        height
-        description
-        contentType
     `;
 }

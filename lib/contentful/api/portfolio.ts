@@ -59,16 +59,18 @@ export class PortfolioApi extends BaseApi {
                     portfolioItemCollection(limit: 10, where: ${whereClause}) {
                         total
                         items {
-                            ${this.CORE_ENTRY_FIELDS}
+                            ...CoreEntryFields
                             title
                             slug
                             description
                             coverImage {
-                                ${this.ASSET_FIELDS}
+                                ...AssetFields
                             }
                         }
                     }
                 }
+                ${this.CORE_ENTRY_FIELDS_FRAGMENT}
+                ${this.ASSET_FIELDS_FRAGMENT}
             `,
         });
 
