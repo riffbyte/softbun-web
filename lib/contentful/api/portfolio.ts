@@ -19,6 +19,10 @@ interface GetPortfolioItemsOptions {
     featured?: boolean;
 }
 
+interface PortfolioItemPathsData {
+    portfolioItemCollection: { items: { slug: string }[] };
+}
+
 export class PortfolioApi extends BaseApi {
     protected ENTRY_BODY_FIELDS_FRAGMENT = gql`
         fragment EntryBodyFields on PortfolioItem {
@@ -74,5 +78,53 @@ export class PortfolioApi extends BaseApi {
         });
 
         return data.portfolioItemCollection;
+    }
+
+    async getPortfolioItemBySlug(slug: string) {
+        const { data } = await this.client.query<PortfolioItemsData>({
+            query: gql`
+                query PortfolioItem {
+                    portfolioItemCollection(limit: 10, where: { slug: "${slug}" }) {
+                        items {
+                            ...CoreEntryFields
+                            title
+                            slug
+                            description
+                            coverImage {
+                                ...AssetFields
+                            }
+                            ...EntryBodyFields
+                        }
+                    }
+                }
+                ${this.CORE_ENTRY_FIELDS_FRAGMENT}
+                ${this.ASSET_FIELDS_FRAGMENT}
+                ${this.ENTRY_BODY_FIELDS_FRAGMENT}
+            `,
+        });
+
+        const { items } = data.portfolioItemCollection;
+
+        if (!items.length) {
+            return null;
+        }
+
+        return items[0];
+    }
+
+    async getPortfolioItemPaths() {
+        const { data } = await this.client.query<PortfolioItemPathsData>({
+            query: gql`
+                query PortfolioItemPaths {
+                    portfolioItemCollection {
+                        items {
+                            slug
+                        }
+                    }
+                }
+            `,
+        });
+
+        return data.portfolioItemCollection.items.map(({ slug }) => `/portfolio/${slug}`);
     }
 }
