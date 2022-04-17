@@ -1,7 +1,7 @@
 import { ApolloClient, gql, InMemoryCache } from '@apollo/client';
 import type { NormalizedCacheObject } from '@apollo/client';
 
-import { fragmentTypes, getClientParams } from './util';
+import { getClientParams, possibleTypes } from './util';
 
 export class BaseApi {
     protected client: ApolloClient<NormalizedCacheObject>;
@@ -15,7 +15,7 @@ export class BaseApi {
             headers: {
                 Authorization: `Bearer ${accessToken}`,
             },
-            cache: new InMemoryCache({ possibleTypes: fragmentTypes }),
+            cache: new InMemoryCache({ possibleTypes }),
         });
     }
 

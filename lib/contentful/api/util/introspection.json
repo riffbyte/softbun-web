@@ -1,0 +1,5 @@
+{
+  "possibleTypes": {
+    "Entry": ["CareerItem", "PortfolioClient", "PortfolioItem"]
+  }
+}

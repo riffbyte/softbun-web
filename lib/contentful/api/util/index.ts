@@ -1,2 +1,3 @@
 export { getClientParams } from './getClientParams';
-export { default as fragmentTypes } from './fragmentTypes.json';
+export { possibleTypes } from './introspection.json';
+export * from './graphql';
