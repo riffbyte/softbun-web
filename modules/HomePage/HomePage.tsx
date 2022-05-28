@@ -3,7 +3,7 @@ import { GitHub, Send, Twitter } from 'react-feather';
 import { Section } from '@/components';
 import type { CareerItem, PortfolioItem } from '@/lib/contentful';
 
-// import { FeaturedPortfolioItems } from './FeaturedPortfolioItems';
+import { FeaturedPortfolioItems } from './FeaturedPortfolioItems';
 
 interface Props {
     featuredPortfolioItems: PortfolioItem[];
@@ -11,7 +11,7 @@ interface Props {
     careerItems: CareerItem[];
 }
 
-export function HomePage({ careerItems }: Props) {
+export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
     return (
         <>
             <Section expanded>
@@ -70,9 +70,9 @@ export function HomePage({ careerItems }: Props) {
                     ))}
                 </ul>
             </Section>
-            {/* <Section title="Some stuff I made recently">
+            <Section title="Some stuff I made recently">
                 <FeaturedPortfolioItems items={featuredPortfolioItems} />
-            </Section> */}
+            </Section>
             {/* <Section title="My other projects">
                 <FeaturedPortfolioItems items={otherPortfolioItems} />
             </Section> */}
