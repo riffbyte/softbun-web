@@ -24,7 +24,9 @@ export function FeaturedPortfolioCard({ item }: Props) {
                 </div>
             )}
             <h2 className="text-xl text-white font-bold mb-3">{item.title}</h2>
-            <ReactMarkdown className="prose">{item.description}</ReactMarkdown>
+            <ReactMarkdown className="prose" linkTarget="_blank">
+                {item.description}
+            </ReactMarkdown>
 
             {item.contentfulMetadata.tags.length > 0 && (
                 <div className="mt-4 flex flex-wrap">
