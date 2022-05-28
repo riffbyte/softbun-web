@@ -2,7 +2,7 @@
 const nextConfig = {
     reactStrictMode: true,
     eslint: {
-        dirs: ['components', 'lib', 'pages'],
+        dirs: ['components', 'lib', 'modules', 'pages'],
     },
     images: {
         domains: ['images.ctfassets.net'],

@@ -11,7 +11,7 @@ interface Props {
     careerItems: CareerItem[];
 }
 
-export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerItems }: Props) {
+export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
     return (
         <>
             <Section expanded>
@@ -38,8 +38,8 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerIt
             </Section>
             <Section title="A little about me" prose>
                 <p>
-                    I've been sailing the web development seas ever since my student years more than
-                    10 years ago. I've been creating everything from regular websites and
+                    I&apos;ve been sailing the web development seas ever since my student years more
+                    than 10 years ago. I&apos;ve been creating everything from regular websites and
                     dashboards, all the way to mobile applications and open-source libraries.
                 </p>
 
@@ -53,11 +53,10 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerIt
                 </blockquote>
 
                 <p>
-                    I write clean and modern JS/TS code with a rigid code-style (man do I love
-                    ESLint!), and I do it <em className="font-bold">really fast</em>. Coming from
-                    the times when all we had was jQuery and plain CSS, I prefer to use the
-                    technologies as our web lords have intended, resulting in simple, maintainable
-                    and accessible applications.
+                    I write clean and modern JS/TS code with a rigid code-style, and I do it{' '}
+                    <em className="font-bold">really fast</em>. Coming from the times when all we
+                    had was jQuery and plain CSS, I prefer to use the technologies as our web lords
+                    have intended, resulting in simple, maintainable and accessible applications.
                 </p>
             </Section>
             <Section title="My working career">
