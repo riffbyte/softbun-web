@@ -5,9 +5,10 @@ interface Props {
     title?: string;
     className?: string;
     expanded?: boolean;
+    prose?: boolean;
 }
 
-export function Section({ children, title, className, expanded }: PropsWithChildren<Props>) {
+export function Section({ children, title, className, expanded, prose }: PropsWithChildren<Props>) {
     return (
         <div
             className={classNames('py-10 lg:py-20 text-gray-400', className, {
@@ -15,7 +16,7 @@ export function Section({ children, title, className, expanded }: PropsWithChild
             })}
         >
             {title && <h2 className="text-4xl font-bold text-white my-8">{title}</h2>}
-            {children}
+            {prose ? <div className="prose prose-invert text-gray-400">{children}</div> : children}
         </div>
     );
 }
