@@ -48,7 +48,7 @@ export function HomePage({ careerItems }: Props) {
                     simple:
                 </p>
 
-                <blockquote className="text-2xl font-bold not-italic my-6 border-aquamarine">
+                <blockquote className="text-2xl font-bold not-italic my-6">
                     Get 💩 done. Fast.
                 </blockquote>
 

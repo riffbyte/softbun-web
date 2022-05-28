@@ -16,7 +16,7 @@ export function Section({ children, title, className, expanded, prose }: PropsWi
             })}
         >
             {title && <h2 className="text-4xl font-bold text-white my-8">{title}</h2>}
-            {prose ? <div className="prose prose-invert text-gray-400">{children}</div> : children}
+            {prose ? <div className="prose">{children}</div> : children}
         </div>
     );
 }
