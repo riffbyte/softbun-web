@@ -1,25 +1,47 @@
-import type { NextPage } from 'next';
-import { Coffee } from 'react-feather';
+import type { GetStaticPropsContext, GetStaticPropsResult } from 'next';
 
 import { Layout } from '@/components';
+import { CareerApi, PortfolioApi } from '@/lib/contentful';
+import type { CareerItem, PortfolioItem } from '@/lib/contentful';
+import { HomePage } from '@/modules';
 
-const Home: NextPage = () => {
+interface HomeProps {
+    featuredPortfolioItems: PortfolioItem[];
+    otherPortfolioItems: PortfolioItem[];
+    careerItems: CareerItem[];
+}
+
+function Home({ featuredPortfolioItems, otherPortfolioItems, careerItems }: HomeProps) {
     return (
-        <Layout centered>
-            <div className="text-center text-gray-900 dark:text-white">
-                <Coffee
-                    className="mx-auto mb-4 text-aquamarine-darker dark:text-aquamarine animate-pulse"
-                    size={80}
-                    strokeWidth="1px"
-                />
-                <h1 className="text-3xl font-bold">Soft Bun Dev</h1>
-                <h2 className="text-xl mt-4">
-                    Some cool stuff brewing
-                    <span className="animated-ellipsis" />
-                </h2>
-            </div>
+        <Layout>
+            <HomePage
+                featuredPortfolioItems={featuredPortfolioItems}
+                otherPortfolioItems={otherPortfolioItems}
+                careerItems={careerItems}
+            />
         </Layout>
     );
-};
+}
+
+export async function getStaticProps({
+    preview,
+}: GetStaticPropsContext): Promise<GetStaticPropsResult<HomeProps>> {
+    const portfolioApi = new PortfolioApi(preview);
+    const { items: featuredPortfolioItems } = await portfolioApi.getPortfolioItems({
+        featured: true,
+    });
+    const { items: otherPortfolioItems } = await portfolioApi.getPortfolioItems();
+
+    const careerApi = new CareerApi(preview);
+    const { items: careerItems } = await careerApi.getCareerItems();
+
+    return {
+        props: {
+            featuredPortfolioItems,
+            otherPortfolioItems,
+            careerItems,
+        },
+    };
+}
 
 export default Home;

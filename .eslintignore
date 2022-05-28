@@ -1,1 +1,3 @@
 lib/types/contentful.ts
+lib/contentful/api/util/graphql.ts
+lib/contentful/api/util/introspection.json

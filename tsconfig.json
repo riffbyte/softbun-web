@@ -17,9 +17,12 @@
     "baseUrl": ".",
     "paths": {
       "@/components": ["components"],
+      "@/modules": ["modules"],
       "@/hooks": ["hooks"],
       "@/public/*": ["public/*"],
-      "@/utils": ["utils"]
+      "@/utils": ["utils"],
+      "@/lib": ["lib"],
+      "@/lib/*": ["lib/*"]
     }
   },
   "include": [
