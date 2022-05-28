@@ -1,4 +1,4 @@
-import { Send, Twitter } from 'react-feather';
+import { GitHub, Send, Twitter } from 'react-feather';
 
 import { Section } from '@/components';
 import type { CareerItem, PortfolioItem } from '@/lib/contentful';
@@ -96,6 +96,16 @@ export function HomePage({ careerItems }: Props) {
                             rel="noopener noreferrer"
                         >
                             <Twitter className="inline-block" aria-label="Twitter:" /> @softbun_dev
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="https://github.com/oleg-semyonov"
+                            className="hover:text-aquamarine"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <GitHub className="inline-block" aria-label="GitHub:" /> @oleg-semyonov
                         </a>
                     </li>
                 </ul>
