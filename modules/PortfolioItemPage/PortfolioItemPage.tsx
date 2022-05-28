@@ -15,14 +15,16 @@ export function PortfolioItemPage({ item }: Props) {
         <>
             <Section>
                 <div className="lg:grid grid-cols-2 gap-8">
-                    <div className="relative">
-                        <Image
-                            src={coverImage.url}
-                            alt={title}
-                            width={coverImage.width}
-                            height={coverImage.height}
-                        />
-                    </div>
+                    {coverImage && (
+                        <div className="relative">
+                            <Image
+                                src={coverImage.url}
+                                alt={title}
+                                width={coverImage.width}
+                                height={coverImage.height}
+                            />
+                        </div>
+                    )}
                     <div>
                         <h1 className="text-6xl font-bold text-white my-8">{title}</h1>
                         <ReactMarkdown className="mb-3">{description}</ReactMarkdown>
@@ -43,9 +45,11 @@ export function PortfolioItemPage({ item }: Props) {
                 </div>
             </Section>
 
-            <div className="max-w-4xl mx-auto">
-                <Section>{renderRichText(body)}</Section>
-            </div>
+            {body && (
+                <div className="max-w-4xl mx-auto">
+                    <Section prose>{renderRichText(body)}</Section>
+                </div>
+            )}
         </>
     );
 }
