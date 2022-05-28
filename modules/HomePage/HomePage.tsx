@@ -11,7 +11,7 @@ interface Props {
     careerItems: CareerItem[];
 }
 
-export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
+export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerItems }: Props) {
     return (
         <>
             <Section expanded>
@@ -73,9 +73,9 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
             <Section title="Some stuff I made recently">
                 <FeaturedPortfolioItems items={featuredPortfolioItems} />
             </Section>
-            {/* <Section title="My other projects">
+            <Section title="My other projects">
                 <FeaturedPortfolioItems items={otherPortfolioItems} />
-            </Section> */}
+            </Section>
             <Section title="Get in touch">
                 <ul className="flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10">
                     <li>
