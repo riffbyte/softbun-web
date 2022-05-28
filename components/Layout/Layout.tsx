@@ -16,7 +16,7 @@ export function Layout({ children, centered }: PropsWithChildren<LayoutProps>) {
             </Head>
 
             <main
-                className={classNames('container flex-grow', {
+                className={classNames('container flex-grow pb-20', {
                     'flex flex-col justify-center items-center': centered,
                 })}
             >

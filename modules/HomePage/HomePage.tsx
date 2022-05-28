@@ -59,11 +59,11 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerIt
                 </p>
             </Section>
             <Section title="My working career">
-                <ul>
+                <ul className="text-xl">
                     {careerItems.map((item) => (
-                        <li key={item.sys.id}>
-                            {item.position} @ {item.company}.{' '}
-                            {new Date(item.startedAt).getFullYear()} -{' '}
+                        <li key={item.sys.id} className="my-4">
+                            <span className="text-aquamarine">{item.position}</span> @{' '}
+                            {item.company}. {new Date(item.startedAt).getFullYear()} -{' '}
                             {item.finishedAt ? new Date(item.finishedAt).getFullYear() : 'Present'}
                         </li>
                     ))}
@@ -72,9 +72,9 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerIt
             <Section title="Some stuff I made recently">
                 <FeaturedPortfolioItems items={featuredPortfolioItems} />
             </Section>
-            <Section title="My other projects">
+            {/* <Section title="My other projects">
                 <FeaturedPortfolioItems items={otherPortfolioItems} />
-            </Section>
+            </Section> */}
         </>
     );
 }
