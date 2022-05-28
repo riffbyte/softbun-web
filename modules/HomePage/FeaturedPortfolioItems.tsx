@@ -12,7 +12,7 @@ export function FeaturedPortfolioItems({ items }: Props) {
     }
 
     return (
-        <div>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {items.map((item) => (
                 <FeaturedPortfolioCard key={item.slug} item={item} />
             ))}
