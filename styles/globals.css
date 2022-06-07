@@ -6,8 +6,8 @@
     .root-container {
         @apply px-6 min-h-screen flex flex-col;
         @apply font-mono;
-        @apply bg-snow text-onyx;
-        @apply dark:bg-onyx dark:text-snow font-mono;
+        @apply bg-snow text-copy-black;
+        @apply dark:bg-onyx dark:text-copy-white font-mono;
     }
 
     .container {

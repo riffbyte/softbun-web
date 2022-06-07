@@ -23,8 +23,8 @@ export function FeaturedPortfolioCard({ item }: Props) {
                     />
                 </div>
             )}
-            <h2 className="text-xl text-white font-bold mb-3">{item.title}</h2>
-            <ReactMarkdown className="prose" linkTarget="_blank">
+            <h2 className="text-xl font-bold mb-3">{item.title}</h2>
+            <ReactMarkdown className="prose dark:prose-invert" linkTarget="_blank">
                 {item.description}
             </ReactMarkdown>
 
@@ -33,7 +33,7 @@ export function FeaturedPortfolioCard({ item }: Props) {
                     {item.contentfulMetadata.tags.map((tag) => (
                         <div
                             key={tag.id}
-                            className="px-2 py-1 mr-2 mb-2 text-sm rounded-md bg-gray-700 whitespace-nowrap"
+                            className="px-2 py-1 mr-2 mb-2 text-sm rounded-md bg-label-light dark:bg-label-dark whitespace-nowrap"
                         >
                             {tag.name}
                         </div>

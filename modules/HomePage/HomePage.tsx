@@ -15,9 +15,9 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerIt
     return (
         <>
             <Section expanded>
-                <p className="text-aquamarine">Hello there! My name is</p>
-                <h1 className="text-6xl font-bold text-white my-8">Oleg Semyonov</h1>
-                <h2 className="text-4xl font-bold text-white opacity-70 mb-8">
+                <p className="text-purple dark:text-aquamarine">Hello there! My name is</p>
+                <h1 className="text-6xl font-bold my-8">Oleg Semyonov</h1>
+                <h2 className="text-4xl font-bold opacity-70 mb-8">
                     I build applications for the web
                 </h2>
 
@@ -29,7 +29,7 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerIt
                         href="https://prezly.com/"
                         target="_blank"
                         rel="noreferrer"
-                        className="text-aquamarine hover:underline"
+                        className="text-purple dark:text-aquamarine hover:underline"
                     >
                         Prezly
                     </a>
@@ -63,8 +63,10 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerIt
                 <ul className="text-xl">
                     {careerItems.map((item) => (
                         <li key={item.sys.id} className="my-4">
-                            <span className="text-aquamarine">{item.position}</span> @{' '}
-                            {item.company}. {new Date(item.startedAt).getFullYear()} -{' '}
+                            <span className="text-purple dark:text-aquamarine">
+                                {item.position}
+                            </span>{' '}
+                            @ {item.company}. {new Date(item.startedAt).getFullYear()} -{' '}
                             {item.finishedAt ? new Date(item.finishedAt).getFullYear() : 'Present'}
                         </li>
                     ))}
@@ -81,7 +83,7 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerIt
                     <li>
                         <a
                             href="https://t.me/SatoAV"
-                            className="hover:text-aquamarine"
+                            className="hover:text-purple dark:hover:text-aquamarine"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -91,7 +93,7 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerIt
                     <li>
                         <a
                             href="https://twitter.com/softbun_dev"
-                            className="hover:text-aquamarine"
+                            className="hover:text-purple dark:hover:text-aquamarine"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -101,7 +103,7 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerIt
                     <li>
                         <a
                             href="https://github.com/oleg-semyonov"
-                            className="hover:text-aquamarine"
+                            className="hover:text-purple dark:hover:text-aquamarine"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
