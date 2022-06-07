@@ -1,7 +1,9 @@
+import Image from 'next/image';
 import { GitHub, Send, Twitter } from 'react-feather';
 
 import { Section } from '@/components';
 import type { CareerItem, PortfolioItem } from '@/lib/contentful';
+import photo from '@/public/photo.png';
 
 import { FeaturedPortfolioItems } from './FeaturedPortfolioItems';
 
@@ -15,13 +17,23 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerIt
     return (
         <>
             <Section expanded>
-                <p className="text-purple dark:text-aquamarine">Hello there! My name is</p>
-                <h1 className="text-6xl font-bold my-8">Oleg Semyonov</h1>
-                <h2 className="text-4xl font-bold opacity-70 mb-8">
-                    I build applications for the web
-                </h2>
+                <div className="flex space-x-16 mb-16">
+                    <div className="self-end">
+                        <p className="text-2xl text-purple dark:text-aquamarine">
+                            Hello there! My name is
+                        </p>
+                        <h1 className="text-8xl font-display mt-4 mb-8">Oleg Semyonov</h1>
+                        <h2 className="text-4xl font-bold text-copy-gray">
+                            I build applications for the web
+                        </h2>
+                    </div>
 
-                <p>
+                    <div className="w-72 h-72 main-photo">
+                        <Image src={photo} alt="Portrait photo" />
+                    </div>
+                </div>
+
+                <p className="text-2xl">
                     I&apos;m a full-stack web developer, making great stuff happen since 2012.
                     <br />
                     Currently building awesome tools for developers at{' '}

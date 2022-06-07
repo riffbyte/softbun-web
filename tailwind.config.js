@@ -15,6 +15,21 @@ module.exports = {
                 'label-light': '#ededed',
                 'label-dark': '#344851',
             },
+            fontFamily: {
+                sans: ['Open Sans', 'sans-serif'],
+                display: ['Bakbak One', 'sans-serif'],
+            },
+            container: {
+                center: true,
+                padding: '1rem',
+                screens: {
+                    sm: '640px',
+                    md: '768px',
+                    lg: '1024px',
+                    xl: '1280px',
+                    '2xl': '1280px',
+                },
+            },
             typography: ({ theme }) => ({
                 // See https://tailwindcss.com/docs/typography-plugin#adding-custom-color-themes
                 DEFAULT: {
