@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Bakbak+One&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -19,6 +21,17 @@
 }
 
 @layer components {
+    .home-page {
+        counter-reset: section-count;
+    }
+
+    .section-counter::before {
+        @apply text-3xl font-normal text-purple dark:text-aquamarine mr-2;
+
+        counter-increment: section-count;
+        content: counter(section-count, decimal-leading-zero) ".";
+    }
+
     .main-photo {
         @apply relative;
     }

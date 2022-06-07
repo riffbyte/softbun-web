@@ -15,7 +15,7 @@ interface Props {
 
 export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerItems }: Props) {
     return (
-        <>
+        <div className="home-page">
             <Section expanded>
                 <div className="flex space-x-16 mb-16">
                     <div className="self-end">
@@ -48,7 +48,7 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerIt
                     .
                 </p>
             </Section>
-            <Section title="A little about me" prose>
+            <Section title="A little about me" prose counter>
                 <p>
                     I&apos;ve been sailing the web development seas ever since my student years more
                     than 10 years ago. I&apos;ve been creating everything from regular websites and
@@ -71,7 +71,7 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerIt
                     have intended, resulting in simple, maintainable and accessible applications.
                 </p>
             </Section>
-            <Section title="My working career">
+            <Section title="My working career" counter>
                 <ul className="text-xl">
                     {careerItems.map((item) => (
                         <li key={item.sys.id} className="my-4">
@@ -84,13 +84,13 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerIt
                     ))}
                 </ul>
             </Section>
-            <Section title="Some stuff I made recently">
+            <Section title="Some stuff I made recently" counter>
                 <FeaturedPortfolioItems items={featuredPortfolioItems} />
             </Section>
-            <Section title="My other projects">
+            <Section title="My other projects" counter>
                 <FeaturedPortfolioItems items={otherPortfolioItems} />
             </Section>
-            <Section title="Get in touch">
+            <Section title="Get in touch" counter>
                 <ul className="flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10">
                     <li>
                         <a
@@ -124,6 +124,6 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerIt
                     </li>
                 </ul>
             </Section>
-        </>
+        </div>
     );
 }

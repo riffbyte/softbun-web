@@ -18,6 +18,7 @@ module.exports = {
             fontFamily: {
                 sans: ['Open Sans', 'sans-serif'],
                 display: ['Bakbak One', 'sans-serif'],
+                mono: ['Fira Code', 'monospace'],
             },
             container: {
                 center: true,
