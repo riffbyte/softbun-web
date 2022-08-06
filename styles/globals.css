@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,17 +9,38 @@
 @layer base {
     .root-container {
         @apply px-6 min-h-screen flex flex-col;
-        @apply font-mono;
-        @apply bg-snow text-onyx;
-        @apply dark:bg-onyx dark:text-snow font-mono;
-    }
-
-    .container {
-        @apply max-w-7xl mx-auto;
+        @apply font-sans;
+        @apply bg-snow text-copy-black;
+        @apply dark:bg-onyx dark:text-copy-white;
+        @apply overflow-x-hidden;
     }
 
     .break-out {
         @apply -mx-6;
+    }
+}
+
+@layer components {
+    .home-page {
+        counter-reset: section-count;
+    }
+
+    .section-counter::before {
+        @apply text-3xl font-normal text-purple dark:text-aquamarine mr-2;
+
+        counter-increment: section-count;
+        content: counter(section-count, decimal-leading-zero) ".";
+    }
+
+    .main-photo {
+        @apply relative;
+    }
+
+    .main-photo::before {
+        @apply absolute block -top-5 -right-5 w-full h-full;
+        @apply border-t-4 border-r-4 border-purple dark:border-aquamarine;
+
+        content: "";
     }
 }
 

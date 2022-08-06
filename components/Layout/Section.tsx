@@ -2,21 +2,47 @@ import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 
 interface Props {
+    id?: string;
     title?: string;
     className?: string;
     expanded?: boolean;
+    counter?: boolean;
     prose?: boolean;
 }
 
-export function Section({ children, title, className, expanded, prose }: PropsWithChildren<Props>) {
+export function Section({
+    children,
+    id,
+    title,
+    className,
+    expanded,
+    counter,
+    prose,
+}: PropsWithChildren<Props>) {
     return (
-        <div
-            className={classNames('py-10 lg:py-20 text-gray-400', className, {
+        <section
+            id={id}
+            className={classNames(className, {
                 'py-40 lg:py-60': expanded,
+                'py-10 lg:py-20': !expanded,
+                'section-with-count': counter,
             })}
         >
-            {title && <h2 className="text-4xl font-bold text-white my-8">{title}</h2>}
-            {prose ? <div className="prose">{children}</div> : children}
-        </div>
+            {title && (
+                <h2
+                    className={classNames('text-4xl font-mono font-bold lowercase mb-10', {
+                        'section-counter': counter,
+                    })}
+                >
+                    &lt;{title}&gt;
+                </h2>
+            )}
+            {prose ? <div className="prose dark:prose-invert">{children}</div> : children}
+            {title && (
+                <p className="text-2xl text-copy-gray text-right font-mono font-bold lowercase mt-20">
+                    &lt;/{title}&gt;
+                </p>
+            )}
+        </section>
     );
 }

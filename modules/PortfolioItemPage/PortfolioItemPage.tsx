@@ -26,15 +26,17 @@ export function PortfolioItemPage({ item }: Props) {
                         </div>
                     )}
                     <div>
-                        <h1 className="text-6xl font-bold text-white my-8">{title}</h1>
-                        <ReactMarkdown className="mb-3">{description}</ReactMarkdown>
+                        <h1 className="text-6xl font-bold my-8">{title}</h1>
+                        <ReactMarkdown className="mb-3 prose dark:prose-invert">
+                            {description}
+                        </ReactMarkdown>
 
                         {item.contentfulMetadata.tags.length > 0 && (
                             <div className="flex space-x-2">
                                 {item.contentfulMetadata.tags.map((tag) => (
                                     <div
                                         key={tag.id}
-                                        className="px-2 py-1 text-sm rounded-md bg-gray-700"
+                                        className="px-2 py-1 text-sm rounded-md bg-label-light dark:bg-label-dark"
                                     >
                                         {tag.name}
                                     </div>
