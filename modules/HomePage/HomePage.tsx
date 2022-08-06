@@ -1,9 +1,9 @@
 import Image from 'next/image';
+import { ArrowRight } from 'react-feather';
 
 import { ButtonLink, CardGrid, ContactsSection, PortfolioCard, Section } from '@/components';
 import type { CareerItem, PortfolioItem } from '@/lib/contentful';
 import photo from '@/public/photo.png';
-import { ArrowRight } from 'react-feather';
 
 interface Props {
     featuredPortfolioItems: PortfolioItem[];
