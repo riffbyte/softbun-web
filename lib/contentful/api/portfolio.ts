@@ -54,12 +54,12 @@ export class PortfolioApi extends BaseApi {
     `;
 
     async getPortfolioItems({ featured }: GetPortfolioItemsOptions = {}) {
-        const whereClause = featured ? '{ featured: true }' : '{ featured_not: true }';
+        const whereClause = featured ? '{ featured: true }' : '{}';
 
         const { data } = await this.client.query<PortfolioItemsData>({
             query: gql`
                 query PortfolioItems {
-                    portfolioItemCollection(limit: 10, where: ${whereClause}) {
+                    portfolioItemCollection(limit: 10, where: ${whereClause}, order: date_DESC) {
                         total
                         items {
                             ...CoreEntryFields
