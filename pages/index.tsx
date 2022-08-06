@@ -7,18 +7,13 @@ import { HomePage } from '@/modules';
 
 interface HomeProps {
     featuredPortfolioItems: PortfolioItem[];
-    otherPortfolioItems: PortfolioItem[];
     careerItems: CareerItem[];
 }
 
-function Home({ featuredPortfolioItems, otherPortfolioItems, careerItems }: HomeProps) {
+function Home({ featuredPortfolioItems, careerItems }: HomeProps) {
     return (
         <Layout>
-            <HomePage
-                featuredPortfolioItems={featuredPortfolioItems}
-                otherPortfolioItems={otherPortfolioItems}
-                careerItems={careerItems}
-            />
+            <HomePage featuredPortfolioItems={featuredPortfolioItems} careerItems={careerItems} />
         </Layout>
     );
 }
@@ -30,7 +25,6 @@ export async function getStaticProps({
     const { items: featuredPortfolioItems } = await portfolioApi.getPortfolioItems({
         featured: true,
     });
-    const { items: otherPortfolioItems } = await portfolioApi.getPortfolioItems();
 
     const careerApi = new CareerApi(preview);
     const { items: careerItems } = await careerApi.getCareerItems();
@@ -38,7 +32,6 @@ export async function getStaticProps({
     return {
         props: {
             featuredPortfolioItems,
-            otherPortfolioItems,
             careerItems,
         },
     };

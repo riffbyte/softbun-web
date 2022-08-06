@@ -1,19 +1,15 @@
 import Image from 'next/image';
-import { GitHub, Send, Twitter } from 'react-feather';
 
-import { Section } from '@/components';
+import { CardGrid, ContactsSection, PortfolioCard, Section } from '@/components';
 import type { CareerItem, PortfolioItem } from '@/lib/contentful';
 import photo from '@/public/photo.png';
 
-import { FeaturedPortfolioItems } from './FeaturedPortfolioItems';
-
 interface Props {
     featuredPortfolioItems: PortfolioItem[];
-    otherPortfolioItems: PortfolioItem[];
     careerItems: CareerItem[];
 }
 
-export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerItems }: Props) {
+export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
     return (
         <div className="home-page">
             <Section expanded>
@@ -85,45 +81,13 @@ export function HomePage({ featuredPortfolioItems, otherPortfolioItems, careerIt
                 </ul>
             </Section>
             <Section title="Some stuff I made recently" counter>
-                <FeaturedPortfolioItems items={featuredPortfolioItems} />
+                <CardGrid>
+                    {featuredPortfolioItems.map((item) => (
+                        <PortfolioCard key={item.sys.id} item={item} />
+                    ))}
+                </CardGrid>
             </Section>
-            <Section title="My other projects" counter>
-                <FeaturedPortfolioItems items={otherPortfolioItems} />
-            </Section>
-            <Section title="Get in touch" counter>
-                <ul className="flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10">
-                    <li>
-                        <a
-                            href="https://t.me/SatoAV"
-                            className="hover:text-purple dark:hover:text-aquamarine"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Send className="inline-block" aria-label="Telegram:" /> @SatoAV
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="https://twitter.com/softbun_dev"
-                            className="hover:text-purple dark:hover:text-aquamarine"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Twitter className="inline-block" aria-label="Twitter:" /> @softbun_dev
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="https://github.com/oleg-semyonov"
-                            className="hover:text-purple dark:hover:text-aquamarine"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <GitHub className="inline-block" aria-label="GitHub:" /> @oleg-semyonov
-                        </a>
-                    </li>
-                </ul>
-            </Section>
+            <ContactsSection counter />
         </div>
     );
 }

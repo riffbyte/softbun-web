@@ -8,10 +8,9 @@ interface Props {
     item: PortfolioItem;
 }
 
-export function FeaturedPortfolioCard({ item }: Props) {
+export function PortfolioCard({ item }: Props) {
     return (
-        // <Link href={`/portfolio/${item.slug}`} passHref>
-        // <a className="block text-left">
+        // <Link href={`/portfolio/${item.slug}`} className="block text-left">
         <div className="block text-left">
             {item.coverImage && (
                 <div className="relative w-80">
@@ -41,7 +40,6 @@ export function FeaturedPortfolioCard({ item }: Props) {
                 </div>
             )}
         </div>
-        // </a>
         // </Link>
     );
 }
