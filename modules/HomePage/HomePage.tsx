@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ButtonLink, CardGrid, ContactsSection, PortfolioCard, Section } from '@/components';
 import type { CareerItem, PortfolioItem } from '@/lib/contentful';
 import photo from '@/public/photo.png';
+import { ArrowRight } from 'react-feather';
 
 interface Props {
     featuredPortfolioItems: PortfolioItem[];
@@ -81,12 +82,15 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
                 </ul>
             </Section>
             <Section title="Some stuff I made recently" counter>
-                <CardGrid className="mb-8">
+                <CardGrid className="mb-16">
                     {featuredPortfolioItems.map((item) => (
                         <PortfolioCard key={item.sys.id} item={item} />
                     ))}
                 </CardGrid>
-                <ButtonLink href="/portfolio">See all items</ButtonLink>
+                <ButtonLink href="/portfolio">
+                    See full portfolio
+                    <ArrowRight className="ml-2" />
+                </ButtonLink>
             </Section>
             <ContactsSection counter />
         </div>

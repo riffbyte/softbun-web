@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
+/** @type {import('tailwindcss').Config} */
 module.exports = {
     darkMode: 'class',
     content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './modules/**/*.{ts,tsx}'],
@@ -27,8 +28,8 @@ module.exports = {
                     sm: '640px',
                     md: '768px',
                     lg: '1024px',
-                    xl: '1280px',
-                    '2xl': '1280px',
+                    xl: '1152px',
+                    '2xl': '1152px',
                 },
             },
             typography: ({ theme }) => ({

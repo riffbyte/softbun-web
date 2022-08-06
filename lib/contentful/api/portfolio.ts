@@ -9,6 +9,9 @@ export interface PortfolioItem extends EntryWithBody {
     slug: string;
     description: string;
     coverImage: Asset;
+    gitHubLink?: string;
+    npmLink?: string;
+    externalLink?: string;
 }
 
 interface PortfolioItemsData {
@@ -69,6 +72,9 @@ export class PortfolioApi extends BaseApi {
                             coverImage {
                                 ...AssetFields
                             }
+                            gitHubLink
+                            npmLink
+                            externalLink
                         }
                     }
                 }
