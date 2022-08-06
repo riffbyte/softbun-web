@@ -1,4 +1,4 @@
-import { CardGrid, ContactsSection, PortfolioCard, Section } from '@/components';
+import { CardGrid, Contacts, PortfolioCard, Section } from '@/components';
 import type { PortfolioItem } from '@/lib/contentful';
 
 interface Props {
@@ -15,7 +15,9 @@ export function PortfolioPage({ items }: Props) {
                     ))}
                 </CardGrid>
             </Section>
-            <ContactsSection />
+            <Section title="Get in touch">
+                <Contacts />
+            </Section>
         </div>
     );
 }

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { ArrowRight } from 'react-feather';
 
-import { ButtonLink, CardGrid, ContactsSection, PortfolioCard, Section } from '@/components';
+import { ButtonLink, CardGrid, Contacts, PortfolioCard, Section } from '@/components';
 import type { CareerItem, PortfolioItem } from '@/lib/contentful';
 import photo from '@/public/photo.png';
 
@@ -92,7 +92,9 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
                     <ArrowRight className="ml-2" />
                 </ButtonLink>
             </Section>
-            <ContactsSection counter />
+            <Section title="Get in touch" counter>
+                <Contacts />
+            </Section>
         </div>
     );
 }
