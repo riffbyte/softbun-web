@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { CardGrid, ContactsSection, PortfolioCard, Section } from '@/components';
+import { ButtonLink, CardGrid, ContactsSection, PortfolioCard, Section } from '@/components';
 import type { CareerItem, PortfolioItem } from '@/lib/contentful';
 import photo from '@/public/photo.png';
 
@@ -81,11 +81,12 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
                 </ul>
             </Section>
             <Section title="Some stuff I made recently" counter>
-                <CardGrid>
+                <CardGrid className="mb-8">
                     {featuredPortfolioItems.map((item) => (
                         <PortfolioCard key={item.sys.id} item={item} />
                     ))}
                 </CardGrid>
+                <ButtonLink href="/portfolio">See all items</ButtonLink>
             </Section>
             <ContactsSection counter />
         </div>
