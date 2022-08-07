@@ -45,6 +45,33 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
                     .
                 </p>
             </Section>
+
+            <Section title="Some stuff I made recently" counter>
+                <CardGrid className="mb-16">
+                    {featuredPortfolioItems.map((item) => (
+                        <PortfolioCard key={item.sys.id} item={item} />
+                    ))}
+                </CardGrid>
+                <ButtonLink href="/portfolio">
+                    See full portfolio
+                    <ArrowRight className="ml-2" />
+                </ButtonLink>
+            </Section>
+
+            <Section title="My working career" counter>
+                <ul className="text-xl">
+                    {careerItems.map((item) => (
+                        <li key={item.sys.id} className="my-4">
+                            <span className="text-purple dark:text-aquamarine">
+                                {item.position}
+                            </span>{' '}
+                            @ {item.company}. {new Date(item.startedAt).getFullYear()} -{' '}
+                            {item.finishedAt ? new Date(item.finishedAt).getFullYear() : 'Present'}
+                        </li>
+                    ))}
+                </ul>
+            </Section>
+
             <Section title="A little about me" prose counter>
                 <p>
                     I&apos;ve been into web development for over 10 years now, creating all kinds of
@@ -67,30 +94,7 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
                     lords intended, resulting in simple, maintainable and accessible applications.
                 </p>
             </Section>
-            <Section title="My working career" counter>
-                <ul className="text-xl">
-                    {careerItems.map((item) => (
-                        <li key={item.sys.id} className="my-4">
-                            <span className="text-purple dark:text-aquamarine">
-                                {item.position}
-                            </span>{' '}
-                            @ {item.company}. {new Date(item.startedAt).getFullYear()} -{' '}
-                            {item.finishedAt ? new Date(item.finishedAt).getFullYear() : 'Present'}
-                        </li>
-                    ))}
-                </ul>
-            </Section>
-            <Section title="Some stuff I made recently" counter>
-                <CardGrid className="mb-16">
-                    {featuredPortfolioItems.map((item) => (
-                        <PortfolioCard key={item.sys.id} item={item} />
-                    ))}
-                </CardGrid>
-                <ButtonLink href="/portfolio">
-                    See full portfolio
-                    <ArrowRight className="ml-2" />
-                </ButtonLink>
-            </Section>
+
             <Section title="Get in touch" counter>
                 <Contacts />
             </Section>
