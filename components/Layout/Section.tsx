@@ -30,7 +30,7 @@ export function Section({
         >
             {title && (
                 <h2
-                    className={classNames('text-4xl font-mono font-bold lowercase mb-10', {
+                    className={classNames('text-4xl font-mono font-bold mb-10', {
                         'section-counter': counter,
                     })}
                 >
@@ -39,7 +39,7 @@ export function Section({
             )}
             {prose ? <div className="prose dark:prose-invert">{children}</div> : children}
             {title && (
-                <p className="text-2xl text-copy-gray text-right font-mono font-bold lowercase mt-20">
+                <p className="text-2xl text-copy-gray text-right font-mono font-bold mt-20">
                     &lt;/{title}&gt;
                 </p>
             )}

@@ -46,7 +46,7 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
                 </p>
             </Section>
 
-            <Section title="Some stuff I made recently" counter>
+            <Section title="Portfolio" counter>
                 <CardGrid className="mb-16">
                     {featuredPortfolioItems.map((item) => (
                         <PortfolioCard key={item.sys.id} item={item} />
@@ -58,7 +58,7 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
                 </ButtonLink>
             </Section>
 
-            <Section title="My working career" counter>
+            <Section title="Carreer" counter>
                 <ul className="text-xl">
                     {careerItems.map((item) => (
                         <li key={item.sys.id} className="my-4">
@@ -72,7 +72,7 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
                 </ul>
             </Section>
 
-            <Section title="A little about me" prose counter>
+            <Section title="About" prose counter>
                 <p>
                     I&apos;ve been into web development for over 10 years now, creating all kinds of
                     things, from regular websites and dashboards, all the way to mobile applications
@@ -95,7 +95,7 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
                 </p>
             </Section>
 
-            <Section title="Get in touch" counter>
+            <Section title="Contacts" counter>
                 <Contacts />
             </Section>
         </div>
