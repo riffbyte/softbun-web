@@ -47,25 +47,24 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
             </Section>
             <Section title="A little about me" prose counter>
                 <p>
-                    I&apos;ve been sailing the web development seas ever since my student years more
-                    than 10 years ago. I&apos;ve been creating everything from regular websites and
-                    dashboards, all the way to mobile applications and open-source libraries.
+                    I&apos;ve been into web development for over 10 years now, creating all kinds of
+                    things, from regular websites and dashboards, all the way to mobile applications
+                    and open-source libraries.
                 </p>
 
                 <p>
-                    The main characteristic of my work one could give for all these years has been
-                    simple:
+                    During these years I&apos;ve been expanding my expertise, diving into UI/UX
+                    design, starting to mentor junior developers and do some project management here
+                    and there. My greatest passion became building new products from scratch,
+                    utilizing modern solutions to make both the user and the developer experience
+                    pleasant and smooth.
                 </p>
 
-                <blockquote className="text-2xl font-bold not-italic my-6">
-                    Get 💩 done. Fast.
-                </blockquote>
-
                 <p>
-                    I write clean and modern JS/TS code with a rigid code-style, and I do it{' '}
+                    I love to write clean and modern JS/TS code with a rigid code-style, and I do it{' '}
                     <em className="font-bold">really fast</em>. Coming from the times when all we
-                    had was jQuery and plain CSS, I prefer to use the technologies as our web lords
-                    have intended, resulting in simple, maintainable and accessible applications.
+                    had was jQuery and plain CSS, I learned to use the technologies the way our web
+                    lords intended, resulting in simple, maintainable and accessible applications.
                 </p>
             </Section>
             <Section title="My working career" counter>
