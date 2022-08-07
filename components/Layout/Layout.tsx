@@ -5,14 +5,19 @@ import type { PropsWithChildren } from 'react';
 import { Footer, Header } from './components';
 
 interface LayoutProps {
+    title?: string;
     centered?: boolean;
 }
 
-export function Layout({ children, centered }: PropsWithChildren<LayoutProps>) {
+export function Layout({
+    children,
+    centered,
+    title = 'Soft Bun Dev',
+}: PropsWithChildren<LayoutProps>) {
     return (
         <div className="root-container">
             <Head>
-                <title>Soft Bun Dev</title>
+                <title>{title}</title>
                 <meta name="description" content="Making stuff happen" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
