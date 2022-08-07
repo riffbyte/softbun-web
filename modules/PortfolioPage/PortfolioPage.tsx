@@ -15,7 +15,7 @@ export function PortfolioPage({ items }: Props) {
                     ))}
                 </CardGrid>
             </Section>
-            <Section title="Contacts">
+            <Section id="contacts" title="Contacts">
                 <Contacts />
             </Section>
         </div>

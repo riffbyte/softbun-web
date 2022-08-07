@@ -95,7 +95,7 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
                 </p>
             </Section>
 
-            <Section title="Contacts" counter>
+            <Section id="contacts" title="Contacts" counter>
                 <Contacts />
             </Section>
         </div>
