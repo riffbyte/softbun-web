@@ -58,7 +58,7 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
                 </ButtonLink>
             </Section>
 
-            <Section title="Carreer" counter>
+            <Section title="Career" counter>
                 <ul className="text-xl">
                     {careerItems.map((item) => (
                         <li key={item.sys.id} className="my-4">
