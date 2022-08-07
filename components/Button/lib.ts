@@ -12,6 +12,7 @@ export function getButtonClassName(variation: ButtonVariation, customClassName?:
         {
             [`
             text-white bg-indigo-500 hover:bg-indigo-600 focus:ring-indigo-500
+            dark:bg-teal-500 dark:hover:bg-teal-600 dark:focus:ring-teal-500
             shadow-sm
             `]: variation === 'primary',
             [`
