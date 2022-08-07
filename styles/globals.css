@@ -13,6 +13,13 @@
         @apply bg-snow text-copy-black;
         @apply dark:bg-onyx dark:text-copy-white;
         @apply overflow-x-hidden;
+
+        background-image: url("/topography.svg");
+        background-size: 900px;
+    }
+
+    .dark .root-container {
+        background-image: url("/topography-dark.svg");
     }
 
     .break-out {
