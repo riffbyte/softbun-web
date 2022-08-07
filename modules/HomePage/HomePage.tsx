@@ -52,7 +52,7 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
                         <PortfolioCard key={item.sys.id} item={item} />
                     ))}
                 </CardGrid>
-                <ButtonLink href="/portfolio">
+                <ButtonLink href="/portfolio" variation="primary">
                     See full portfolio
                     <ArrowRight className="ml-2" />
                 </ButtonLink>
