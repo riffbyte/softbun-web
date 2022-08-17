@@ -8,7 +8,7 @@
 
 @layer base {
     .root-container {
-        @apply px-6 min-h-screen flex flex-col;
+        @apply min-h-screen flex flex-col;
         @apply font-sans;
         @apply bg-snow text-copy-black;
         @apply dark:bg-onyx dark:text-copy-white;
@@ -20,10 +20,6 @@
 
     .dark .root-container {
         background-image: url("/topography-dark.svg");
-    }
-
-    .break-out {
-        @apply -mx-6;
     }
 }
 

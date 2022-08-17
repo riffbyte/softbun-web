@@ -1,6 +1,6 @@
 export function Footer() {
     return (
-        <footer className="break-out border-t border-onyx dark:border-snow">
+        <footer className="border-t border-onyx dark:border-snow">
             <div className="container py-4 flex justify-center items-center">
                 <a
                     href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
