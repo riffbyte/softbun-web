@@ -14,23 +14,25 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
     return (
         <div className="home-page">
             <Section expanded>
-                <div className="flex space-x-16 mb-16">
-                    <div className="self-end">
+                <div className="md:flex md:space-x-16 mb-16">
+                    <div className="md:self-end">
                         <p className="text-2xl text-purple dark:text-aquamarine">
                             Hello there! My name is
                         </p>
-                        <h1 className="text-8xl font-display mt-4 mb-8">Oleg Semyonov</h1>
-                        <h2 className="text-4xl font-bold text-copy-gray">
+                        <h1 className="text-6xl md:text-8xl font-display mt-4 mb-8">
+                            Oleg Semyonov
+                        </h1>
+                        <h2 className="text-3xl md:text-4xl font-bold text-copy-gray">
                             I build applications for the web
                         </h2>
                     </div>
 
-                    <div className="w-72 h-72 main-photo">
+                    <div className="hidden md:block w-72 h-72 main-photo">
                         <Image src={photo} alt="Portrait photo" />
                     </div>
                 </div>
 
-                <p className="text-2xl">
+                <p className="text-xl md:text-2xl">
                     I&apos;m a full-stack web developer, making great stuff happen since 2012.
                     <br />
                     Currently building awesome tools for developers at{' '}
@@ -59,14 +61,19 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
             </Section>
 
             <Section title="Career" counter>
-                <ul className="text-xl">
+                <ul className="text-lg md:text-xl">
                     {careerItems.map((item) => (
                         <li key={item.sys.id} className="my-4">
                             <span className="text-purple dark:text-aquamarine">
                                 {item.position}
                             </span>{' '}
-                            @ {item.company}. {new Date(item.startedAt).getFullYear()} -{' '}
-                            {item.finishedAt ? new Date(item.finishedAt).getFullYear() : 'Present'}
+                            @ {item.company}.{' '}
+                            <span className="block md:inline">
+                                {new Date(item.startedAt).getFullYear()} -{' '}
+                                {item.finishedAt
+                                    ? new Date(item.finishedAt).getFullYear()
+                                    : 'Present'}
+                            </span>
                         </li>
                     ))}
                 </ul>
