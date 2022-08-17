@@ -26,7 +26,7 @@ export function Header() {
                 className={classNames(
                     'w-full absolute md:static md:block md:w-auto',
                     'top-[100%] left-0 right-0',
-                    'after:content-[""] after:block after:absolute after:top-[100%] after:left-0 after:right-0 after:h-60 after:bg-gradient-to-b after:from-white dark:after:from-onyx',
+                    'after:content-[""] after:block after:md:hidden after:absolute after:top-[100%] after:left-0 after:right-0 after:h-60 after:bg-gradient-to-b after:from-white dark:after:from-onyx',
                     {
                         hidden: !isMenuOpen,
                     },
