@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useState } from 'react';
-import { Menu } from 'react-feather';
+import { Menu, X } from 'react-feather';
 
 import { Button } from '@/components';
 
@@ -49,7 +49,7 @@ export function Header() {
                 aria-expanded={isMenuOpen}
             >
                 <span className="sr-only">Open main menu</span>
-                <Menu width={24} height={24} />
+                {isMenuOpen ? <X width={24} height={24} /> : <Menu width={24} height={24} />}
             </Button>
         </header>
     );
