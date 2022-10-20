@@ -23,7 +23,7 @@ export class CareerApi extends BaseApi {
             query: gql`
                 ${this.CORE_ENTRY_FIELDS_FRAGMENT}
                 query CareerItems {
-                    careerItemCollection(limit: 10) {
+                    careerItemCollection(limit: 10, order: startedAt_DESC) {
                         total
                         items {
                             ...CoreEntryFields
