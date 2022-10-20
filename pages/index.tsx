@@ -1,6 +1,7 @@
 import type { GetStaticPropsContext, GetStaticPropsResult } from 'next';
 
 import { Layout } from '@/components';
+import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
 import { CareerApi, PortfolioApi } from '@/lib/contentful';
 import type { CareerItem, PortfolioItem } from '@/lib/contentful';
 import { HomePage } from '@/modules';
@@ -34,6 +35,7 @@ export async function getStaticProps({
             featuredPortfolioItems,
             careerItems,
         },
+        revalidate: ISR_REVALIDATE_TIMEOUT,
     };
 }
 

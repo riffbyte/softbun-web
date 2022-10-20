@@ -1,5 +1,6 @@
 import type { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } from 'next';
 
+import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
 import { PortfolioApi } from '@/lib/contentful';
 import type { PortfolioItem } from '@/lib/contentful';
 import { Layout } from 'components/Layout';
@@ -36,6 +37,7 @@ export async function getStaticProps({
         props: {
             item,
         },
+        revalidate: ISR_REVALIDATE_TIMEOUT,
     };
 }
 
@@ -45,7 +47,7 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
 
     return {
         paths,
-        fallback: false,
+        fallback: 'blocking',
     };
 }
 
