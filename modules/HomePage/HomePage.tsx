@@ -81,9 +81,9 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
 
             <Section title="About" prose counter>
                 <p>
-                    I&apos;ve been into web development for over 10 years now, creating all kinds of
-                    things, from regular websites and dashboards, all the way to mobile applications
-                    and open-source libraries.
+                    I&apos;ve been into web development for about 10 years now, creating all kinds
+                    of things, from regular websites and dashboards, all the way to mobile
+                    applications and open-source libraries.
                 </p>
 
                 <p>
@@ -92,13 +92,6 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
                     and there. My greatest passion became building new products from scratch,
                     utilizing modern solutions to make both the user and the developer experience
                     pleasant and smooth.
-                </p>
-
-                <p>
-                    I love to write clean and modern JS/TS code with a rigid code-style, and I do it{' '}
-                    <em className="font-bold">really fast</em>. Coming from the times when all we
-                    had was jQuery and plain CSS, I learned to use the technologies the way our web
-                    lords intended, resulting in simple, maintainable and accessible applications.
                 </p>
             </Section>
 
