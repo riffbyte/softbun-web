@@ -56,7 +56,7 @@ export function PortfolioLinks({ item, className, extended }: Props) {
                     className={linkClassName}
                 >
                     <ExternalLink className={iconClassName} />
-                    <span className={labelClassName}>External link</span>
+                    <span className={labelClassName}>Learn more</span>
                 </a>
             )}
         </div>
