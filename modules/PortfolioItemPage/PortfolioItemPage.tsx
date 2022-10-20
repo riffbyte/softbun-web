@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 
+import { PortfolioLinks, PortfolioTags, Section } from '@/components';
 import type { PortfolioItem } from '@/lib/contentful';
 import { renderRichText } from '@/lib/contentful';
-import { Section } from 'components/Layout';
 
 interface Props {
     item: PortfolioItem;
@@ -31,27 +31,23 @@ export function PortfolioItemPage({ item }: Props) {
                             {description}
                         </ReactMarkdown>
 
-                        {item.contentfulMetadata.tags.length > 0 && (
-                            <div className="flex space-x-2">
-                                {item.contentfulMetadata.tags.map((tag) => (
-                                    <div
-                                        key={tag.id}
-                                        className="px-2 py-1 text-sm rounded-md bg-label-light dark:bg-label-dark"
-                                    >
-                                        {tag.name}
-                                    </div>
-                                ))}
-                            </div>
-                        )}
+                        <PortfolioTags tags={item.contentfulMetadata.tags} className="mt-6" />
+
+                        <PortfolioLinks item={item} className="mt-6" extended />
                     </div>
                 </div>
             </Section>
 
-            {body && (
-                <div className="max-w-4xl mx-auto">
-                    <Section prose>{renderRichText(body)}</Section>
-                </div>
-            )}
+            <div className="max-w-4xl">
+                <Section prose>
+                    {body && renderRichText(body)}
+                    {!body && (
+                        <p className="italic">
+                            One day this page will receive a proper story, I promise...
+                        </p>
+                    )}
+                </Section>
+            </div>
         </>
     );
 }

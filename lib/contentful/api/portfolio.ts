@@ -99,6 +99,9 @@ export class PortfolioApi extends BaseApi {
                             coverImage {
                                 ...AssetFields
                             }
+                            gitHubLink
+                            npmLink
+                            externalLink
                             ...EntryBodyFields
                         }
                     }

@@ -1,9 +1,9 @@
 import type { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } from 'next';
 
+import { Layout } from '@/components';
 import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
 import { PortfolioApi } from '@/lib/contentful';
 import type { PortfolioItem } from '@/lib/contentful';
-import { Layout } from 'components/Layout';
 import { PortfolioItemPage } from 'modules/PortfolioItemPage';
 
 interface PortfolioItemProps {

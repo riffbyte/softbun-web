@@ -6,22 +6,35 @@ import type { PortfolioItem } from '@/lib/contentful';
 interface Props {
     item: PortfolioItem;
     className?: string;
+    extended?: boolean;
 }
 
-export function PortfolioLinks({ item, className }: Props) {
+export function PortfolioLinks({ item, className, extended }: Props) {
     const { gitHubLink, npmLink, externalLink } = item;
 
+    const linkClassName = classNames(
+        'relative z-10 h-10 p-1 hover:text-purple dark:hover:text-aquamarine',
+        {
+            'block w-10': !extended,
+            'flex items-center space-x-2 flex-shrink-0': extended,
+        },
+    );
+
+    const labelClassName = classNames({ 'sr-only': !extended, 'font-mono font-medium': extended });
+
+    const iconClassName = classNames({ 'w-8 h-8': !extended, 'w-6 h-6': extended });
+
     return (
-        <div className={classNames('h-10 flex space-x-3', className)}>
+        <div className={classNames('h-10 flex flex-wrap gap-3', className)}>
             {gitHubLink && (
                 <a
                     href={gitHubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block relative z-10 w-10 h-10 p-1 hover:text-purple dark:hover:text-aquamarine"
+                    className={linkClassName}
                 >
-                    <GitHub className="w-8 h-8" />
-                    <span className="sr-only">GitHub repository</span>
+                    <GitHub className={iconClassName} />
+                    <span className={labelClassName}>GitHub repository</span>
                 </a>
             )}
             {npmLink && (
@@ -29,10 +42,10 @@ export function PortfolioLinks({ item, className }: Props) {
                     href={npmLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block relative z-10 w-10 h-10 p-1 hover:text-purple dark:hover:text-aquamarine"
+                    className={linkClassName}
                 >
-                    <Package className="w-8 h-8" />
-                    <span className="sr-only">NPM package</span>
+                    <Package className={iconClassName} />
+                    <span className={labelClassName}>NPM package</span>
                 </a>
             )}
             {externalLink && (
@@ -40,10 +53,10 @@ export function PortfolioLinks({ item, className }: Props) {
                     href={externalLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block relative z-10 w-10 h-10 p-1 hover:text-purple dark:hover:text-aquamarine"
+                    className={linkClassName}
                 >
-                    <ExternalLink className="w-8 h-8" />
-                    <span className="sr-only">External link</span>
+                    <ExternalLink className={iconClassName} />
+                    <span className={labelClassName}>External link</span>
                 </a>
             )}
         </div>
