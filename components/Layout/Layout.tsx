@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import Head from 'next/head';
 import type { PropsWithChildren } from 'react';
 
-import { Footer, Header } from './components';
+import { Header } from './components';
 
 interface LayoutProps {
     title?: string;

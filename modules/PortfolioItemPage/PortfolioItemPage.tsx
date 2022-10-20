@@ -1,10 +1,10 @@
+import classNames from 'classnames';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 
 import { PortfolioLinks, PortfolioTags, Section } from '@/components';
 import type { PortfolioItem } from '@/lib/contentful';
 import { renderRichText } from '@/lib/contentful';
-import classNames from 'classnames';
 
 interface Props {
     item: PortfolioItem;
