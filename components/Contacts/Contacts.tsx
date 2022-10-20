@@ -1,4 +1,4 @@
-import { GitHub, Send, Twitter } from 'react-feather';
+import { GitHub, Linkedin, Send, Twitter } from 'react-feather';
 
 export function Contacts() {
     return (
@@ -31,6 +31,16 @@ export function Contacts() {
                     rel="noopener noreferrer"
                 >
                     <GitHub className="inline-block" aria-label="GitHub:" /> @oleg-semyonov
+                </a>
+            </li>
+            <li>
+                <a
+                    href="https://www.linkedin.com/in/oleg-semyonov-609176250/"
+                    className="hover:text-purple dark:hover:text-aquamarine"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <Linkedin className="inline-block" aria-label="Linkedin:" /> Oleg Semyonov
                 </a>
             </li>
         </ul>
