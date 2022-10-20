@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { PortfolioLinks, PortfolioTags, Section } from '@/components';
 import type { PortfolioItem } from '@/lib/contentful';
 import { renderRichText } from '@/lib/contentful';
+import classNames from 'classnames';
 
 interface Props {
     item: PortfolioItem;
@@ -15,16 +16,6 @@ export function PortfolioItemPage({ item }: Props) {
         <>
             <Section>
                 <div className="lg:grid grid-cols-2 gap-8">
-                    {coverImage && (
-                        <div className="relative">
-                            <Image
-                                src={coverImage.url}
-                                alt={title}
-                                width={coverImage.width}
-                                height={coverImage.height}
-                            />
-                        </div>
-                    )}
                     <div>
                         <h1 className="text-6xl font-bold my-8">{title}</h1>
                         <ReactMarkdown className="mb-3 prose dark:prose-invert">
@@ -35,6 +26,20 @@ export function PortfolioItemPage({ item }: Props) {
 
                         <PortfolioLinks item={item} className="mt-6" extended />
                     </div>
+                    {coverImage && (
+                        <div className="relative mt-6 lg:mt-0 flex justify-center items-center">
+                            <Image
+                                src={coverImage.url}
+                                alt={title}
+                                width={coverImage.width}
+                                height={coverImage.height}
+                                className={classNames({
+                                    'rounded-lg shadow-xl dark:shadow-none':
+                                        !coverImage.fileName.endsWith('.png'),
+                                })}
+                            />
+                        </div>
+                    )}
                 </div>
             </Section>
 
