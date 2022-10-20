@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 
-import { PortfolioLinks, PortfolioTags, Section } from '@/components';
+import { Contacts, PortfolioLinks, PortfolioTags, Section } from '@/components';
 import type { PortfolioItem } from '@/lib/contentful';
 import { renderRichText } from '@/lib/contentful';
 
@@ -53,6 +53,10 @@ export function PortfolioItemPage({ item }: Props) {
                     )}
                 </Section>
             </div>
+
+            <Section id="contacts" title="Contacts">
+                <Contacts />
+            </Section>
         </>
     );
 }
