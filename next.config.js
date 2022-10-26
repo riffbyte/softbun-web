@@ -7,9 +7,6 @@ const nextConfig = {
     images: {
         domains: ['images.ctfassets.net'],
     },
-    experimental: {
-        newNextLinkBehavior: true,
-    },
 };
 
 module.exports = nextConfig;
