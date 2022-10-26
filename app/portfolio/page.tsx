@@ -1,11 +1,18 @@
 import { CardGrid, Contacts, PortfolioCard, Section } from '@/components';
-import type { PortfolioItem } from '@/lib/contentful';
+// TODO: Support ISR revalidation
+// import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
+import { PortfolioApi } from '@/lib/contentful';
 
-interface Props {
-    items: PortfolioItem[];
+async function getPortfolioItems() {
+    // TODO: Allow previewing (not supported by /app yet?)
+    const portfolioApi = new PortfolioApi();
+    const { items } = await portfolioApi.getPortfolioItems();
+    return items;
 }
 
-export function PortfolioPage({ items }: Props) {
+export default async function PortfolioPage() {
+    const items = await getPortfolioItems();
+
     return (
         <div className="portfolio-page">
             <Section title="Portfolio">
