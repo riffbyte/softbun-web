@@ -121,7 +121,7 @@ export class PortfolioApi extends BaseApi {
         return items[0];
     }
 
-    async getPortfolioItemPaths() {
+    async getPortfolioItemSlugs() {
         const { data } = await this.client.query<PortfolioItemPathsData>({
             query: gql`
                 query PortfolioItemPaths {
@@ -134,6 +134,6 @@ export class PortfolioApi extends BaseApi {
             `,
         });
 
-        return data.portfolioItemCollection.items.map(({ slug }) => `/portfolio/${slug}`);
+        return data.portfolioItemCollection.items;
     }
 }
