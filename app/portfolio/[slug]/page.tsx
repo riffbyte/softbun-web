@@ -16,11 +16,16 @@ async function getPortfolioItem(slug: string) {
     return portfolioApi.getPortfolioItemBySlug(slug);
 }
 
-export default async function PortfolioItemPage({ params }: { params: { slug: string } }) {
-    const item = await getPortfolioItem(params.slug);
+interface Params {
+    slug: string;
+}
+
+export default async function PortfolioItemPage({ params }: { params?: Partial<Params> }) {
+    const item = params?.slug ? await getPortfolioItem(params.slug) : null;
 
     if (!item) {
-        return notFound();
+        notFound();
+        return null;
     }
 
     const { title, coverImage, description, body } = item;
@@ -74,7 +79,7 @@ export default async function PortfolioItemPage({ params }: { params: { slug: st
     );
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<Params[]> {
     const portfolioApi = new PortfolioApi();
     return portfolioApi.getPortfolioItemSlugs();
 }
