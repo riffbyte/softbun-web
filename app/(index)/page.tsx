@@ -2,10 +2,11 @@ import Image from 'next/image';
 import { ArrowRight } from 'react-feather';
 
 import { ButtonLink, CardGrid, Contacts, PortfolioCard, Section } from '@/components';
-// TODO: Support ISR revalidation
-// import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
+import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
 import { CareerApi, PortfolioApi } from '@/lib/contentful';
 import photo from '@/public/photo.png';
+
+export const revalidate = ISR_REVALIDATE_TIMEOUT;
 
 // TODO: Allow previewing (not supported by /app yet?)
 async function getPortfolioItems() {

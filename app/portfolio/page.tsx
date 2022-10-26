@@ -1,7 +1,8 @@
 import { CardGrid, Contacts, PortfolioCard, Section } from '@/components';
-// TODO: Support ISR revalidation
-// import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
+import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
 import { PortfolioApi } from '@/lib/contentful';
+
+export const revalidate = ISR_REVALIDATE_TIMEOUT;
 
 async function getPortfolioItems() {
     // TODO: Allow previewing (not supported by /app yet?)
