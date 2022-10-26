@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import Head from 'next/head';
 import type { PropsWithChildren } from 'react';

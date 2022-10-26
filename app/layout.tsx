@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 
-import { Header } from '@/components/Header';
+import { Header } from '@/components';
 
 import '../styles/globals.css';
 

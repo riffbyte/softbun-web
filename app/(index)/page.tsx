@@ -2,15 +2,34 @@ import Image from 'next/image';
 import { ArrowRight } from 'react-feather';
 
 import { ButtonLink, CardGrid, Contacts, PortfolioCard, Section } from '@/components';
-import type { CareerItem, PortfolioItem } from '@/lib/contentful';
+// TODO: Support ISR revalidation
+// import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
+import { CareerApi, PortfolioApi } from '@/lib/contentful';
 import photo from '@/public/photo.png';
 
-interface Props {
-    featuredPortfolioItems: PortfolioItem[];
-    careerItems: CareerItem[];
+// TODO: Allow previewing (not supported by /app yet?)
+async function getPortfolioItems() {
+    const portfolioApi = new PortfolioApi();
+    const { items: featuredPortfolioItems } = await portfolioApi.getPortfolioItems({
+        featured: true,
+    });
+
+    return featuredPortfolioItems;
 }
 
-export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
+async function getCareerItems() {
+    const careerApi = new CareerApi();
+    const { items: careerItems } = await careerApi.getCareerItems();
+
+    return careerItems;
+}
+
+export default async function HomePage() {
+    const [featuredPortfolioItems, careerItems] = await Promise.all([
+        getPortfolioItems(),
+        getCareerItems(),
+    ]);
+
     return (
         <div className="home-page">
             <Section expanded>
