@@ -48,7 +48,7 @@ export default async function HomePage() {
                     </div>
 
                     <div className="hidden md:block w-72 h-72 main-photo">
-                        <Image src={photo} alt="Portrait photo" />
+                        <Image src={photo} alt="Portrait photo" priority />
                     </div>
                 </div>
 
