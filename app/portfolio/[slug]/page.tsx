@@ -1,19 +1,37 @@
 import classNames from 'classnames';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 
 import { Contacts, PortfolioLinks, PortfolioTags, Section } from '@/components';
-import type { PortfolioItem } from '@/lib/contentful';
-import { renderRichText } from '@/lib/contentful';
+import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
+import { PortfolioApi, renderRichText } from '@/lib/contentful';
 
-interface Props {
-    item: PortfolioItem;
+export const revalidate = ISR_REVALIDATE_TIMEOUT;
+
+async function getPortfolioItem(slug: string) {
+    // TODO: Allow previewing (not supported by /app yet?)
+    const portfolioApi = new PortfolioApi();
+
+    return portfolioApi.getPortfolioItemBySlug(slug);
 }
 
-export function PortfolioItemPage({ item }: Props) {
+interface Params {
+    slug: string;
+}
+
+export default async function PortfolioItemPage({ params }: { params?: Partial<Params> }) {
+    const item = params?.slug ? await getPortfolioItem(params.slug) : null;
+
+    if (!item) {
+        notFound();
+        return null;
+    }
+
     const { title, coverImage, description, body } = item;
+
     return (
-        <>
+        <div className="portfolio-item-page">
             <Section>
                 <div className="lg:grid grid-cols-2 gap-8">
                     <div>
@@ -57,6 +75,11 @@ export function PortfolioItemPage({ item }: Props) {
             <Section id="contacts" title="Contacts">
                 <Contacts />
             </Section>
-        </>
+        </div>
     );
+}
+
+export async function generateStaticParams(): Promise<Params[]> {
+    const portfolioApi = new PortfolioApi();
+    return portfolioApi.getPortfolioItemSlugs();
 }

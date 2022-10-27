@@ -1,16 +1,20 @@
 import Image from 'next/image';
+import { Suspense } from 'react';
 import { ArrowRight } from 'react-feather';
 
-import { ButtonLink, CardGrid, Contacts, PortfolioCard, Section } from '@/components';
-import type { CareerItem, PortfolioItem } from '@/lib/contentful';
+import { CarreerList } from '@/app/components/CarreerList';
+import { CarreerListSkeleton } from '@/app/components/CarreerList.skeleton';
+import { PortfolioGrid } from '@/app/components/PortfolioGrid';
+import { PortfolioGridSkeleton } from '@/app/components/PortfolioGrid.skeleton';
+import { ButtonLink, Contacts, Section } from '@/components';
+import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
 import photo from '@/public/photo.png';
 
-interface Props {
-    featuredPortfolioItems: PortfolioItem[];
-    careerItems: CareerItem[];
-}
+export const revalidate = ISR_REVALIDATE_TIMEOUT;
 
-export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
+// TODO: Allow previewing (not supported by /app yet?)
+
+export default function HomePage() {
     return (
         <div className="home-page">
             <Section expanded>
@@ -28,7 +32,7 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
                     </div>
 
                     <div className="hidden md:block w-72 h-72 main-photo">
-                        <Image src={photo} alt="Portrait photo" />
+                        <Image src={photo} alt="Portrait photo" priority />
                     </div>
                 </div>
 
@@ -49,11 +53,10 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
             </Section>
 
             <Section title="Portfolio" counter>
-                <CardGrid className="mb-16">
-                    {featuredPortfolioItems.map((item) => (
-                        <PortfolioCard key={item.sys.id} item={item} />
-                    ))}
-                </CardGrid>
+                <Suspense fallback={<PortfolioGridSkeleton className="mb-16" />}>
+                    {/* @ts-ignore */}
+                    <PortfolioGrid className="mb-16" featured />
+                </Suspense>
                 <ButtonLink href="/portfolio" variation="primary">
                     See full portfolio
                     <ArrowRight className="ml-2" />
@@ -61,22 +64,10 @@ export function HomePage({ featuredPortfolioItems, careerItems }: Props) {
             </Section>
 
             <Section title="Career" counter>
-                <ul className="text-lg md:text-xl">
-                    {careerItems.map((item) => (
-                        <li key={item.sys.id} className="my-4">
-                            <span className="text-purple dark:text-aquamarine">
-                                {item.position}
-                            </span>{' '}
-                            @ {item.company}.{' '}
-                            <span className="block md:inline">
-                                {new Date(item.startedAt).getFullYear()} -{' '}
-                                {item.finishedAt
-                                    ? new Date(item.finishedAt).getFullYear()
-                                    : 'Present'}
-                            </span>
-                        </li>
-                    ))}
-                </ul>
+                <Suspense fallback={<CarreerListSkeleton />}>
+                    {/* @ts-ignore */}
+                    <CarreerList />
+                </Suspense>
             </Section>
 
             <Section title="About" prose counter>

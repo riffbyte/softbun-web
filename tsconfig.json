@@ -16,14 +16,22 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
+      "@/app/components": ["app/(components)"],
+      "@/app/components/*": ["app/(components)/*"],
       "@/components": ["components"],
+      "@/components/*": ["components/*"],
       "@/modules": ["modules"],
       "@/hooks": ["hooks"],
       "@/public/*": ["public/*"],
       "@/utils": ["utils"],
       "@/lib": ["lib"],
       "@/lib/*": ["lib/*"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
@@ -31,7 +39,8 @@
     "**/*.tsx",
     "postcss.config.js",
     "tailwind.config.js",
-    "next.config.js"
+    "next.config.js",
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

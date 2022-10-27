@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import { useState } from 'react';
 import { Menu, X } from 'react-feather';

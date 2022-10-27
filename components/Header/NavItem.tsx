@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import type { PropsWithChildren } from 'react';
 
 interface Props {
@@ -8,12 +8,14 @@ interface Props {
 }
 
 export function NavItem({ href, children }: PropsWithChildren<Props>) {
-    const { pathname } = useRouter();
+    const pathname = usePathname();
     const isActive = pathname === href;
+
+    const LinkComponent = href.startsWith('#') ? 'a' : Link;
 
     return (
         <li>
-            <Link
+            <LinkComponent
                 href={href}
                 className={classNames(
                     'font-mono text-lg p-2 hover:text-purple dark:hover:text-aquamarine',
@@ -24,7 +26,7 @@ export function NavItem({ href, children }: PropsWithChildren<Props>) {
                 )}
             >
                 {children}
-            </Link>
+            </LinkComponent>
         </li>
     );
 }
