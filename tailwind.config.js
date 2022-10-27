@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     darkMode: 'class',
