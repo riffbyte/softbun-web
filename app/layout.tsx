@@ -1,10 +1,9 @@
 import type { PropsWithChildren } from 'react';
 
+import { ThemeContext } from '@/app/components/ThemeContext';
 import { Header } from '@/components';
 
 import '../styles/globals.css';
-
-import { ThemeContext } from './ThemeContext';
 
 export default function RootLayout({ children }: PropsWithChildren<{}>) {
     return (

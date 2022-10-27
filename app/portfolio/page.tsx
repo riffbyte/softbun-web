@@ -1,10 +1,9 @@
 import { Suspense } from 'react';
 
+import { PortfolioGrid } from '@/app/components/PortfolioGrid';
+import { PortfolioGridSkeleton } from '@/app/components/PortfolioGrid.skeleton';
 import { Contacts, Section } from '@/components';
 import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
-
-import { PortfolioGrid } from '../PortfolioGrid';
-import { PortfolioGridSkeleton } from '../PortfolioGrid.skeleton';
 
 export const revalidate = ISR_REVALIDATE_TIMEOUT;
 
