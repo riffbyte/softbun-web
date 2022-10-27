@@ -1,36 +1,21 @@
 import Image from 'next/image';
+import { Suspense } from 'react';
 import { ArrowRight } from 'react-feather';
 
-import { ButtonLink, CardGrid, Contacts, PortfolioCard, Section } from '@/components';
+import { ButtonLink, Contacts, Section } from '@/components';
 import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
-import { CareerApi, PortfolioApi } from '@/lib/contentful';
 import photo from '@/public/photo.png';
+
+import { CarreerList } from '../CarreerList';
+import { CarreerListSkeleton } from '../CarreerList.skeleton';
+import { PortfolioGrid } from '../PortfolioGrid';
+import { PortfolioGridSkeleton } from '../PortfolioGrid.skeleton';
 
 export const revalidate = ISR_REVALIDATE_TIMEOUT;
 
 // TODO: Allow previewing (not supported by /app yet?)
-async function getPortfolioItems() {
-    const portfolioApi = new PortfolioApi();
-    const { items: featuredPortfolioItems } = await portfolioApi.getPortfolioItems({
-        featured: true,
-    });
 
-    return featuredPortfolioItems;
-}
-
-async function getCareerItems() {
-    const careerApi = new CareerApi();
-    const { items: careerItems } = await careerApi.getCareerItems();
-
-    return careerItems;
-}
-
-export default async function HomePage() {
-    const [featuredPortfolioItems, careerItems] = await Promise.all([
-        getPortfolioItems(),
-        getCareerItems(),
-    ]);
-
+export default function HomePage() {
     return (
         <div className="home-page">
             <Section expanded>
@@ -69,11 +54,10 @@ export default async function HomePage() {
             </Section>
 
             <Section title="Portfolio" counter>
-                <CardGrid className="mb-16">
-                    {featuredPortfolioItems.map((item) => (
-                        <PortfolioCard key={item.sys.id} item={item} />
-                    ))}
-                </CardGrid>
+                <Suspense fallback={<PortfolioGridSkeleton className="mb-16" />}>
+                    {/* @ts-ignore */}
+                    <PortfolioGrid className="mb-16" featured />
+                </Suspense>
                 <ButtonLink href="/portfolio" variation="primary">
                     See full portfolio
                     <ArrowRight className="ml-2" />
@@ -81,22 +65,10 @@ export default async function HomePage() {
             </Section>
 
             <Section title="Career" counter>
-                <ul className="text-lg md:text-xl">
-                    {careerItems.map((item) => (
-                        <li key={item.sys.id} className="my-4">
-                            <span className="text-purple dark:text-aquamarine">
-                                {item.position}
-                            </span>{' '}
-                            @ {item.company}.{' '}
-                            <span className="block md:inline">
-                                {new Date(item.startedAt).getFullYear()} -{' '}
-                                {item.finishedAt
-                                    ? new Date(item.finishedAt).getFullYear()
-                                    : 'Present'}
-                            </span>
-                        </li>
-                    ))}
-                </ul>
+                <Suspense fallback={<CarreerListSkeleton />}>
+                    {/* @ts-ignore */}
+                    <CarreerList />
+                </Suspense>
             </Section>
 
             <Section title="About" prose counter>

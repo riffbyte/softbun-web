@@ -1,27 +1,21 @@
-import { CardGrid, Contacts, PortfolioCard, Section } from '@/components';
+import { Suspense } from 'react';
+
+import { Contacts, Section } from '@/components';
 import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
-import { PortfolioApi } from '@/lib/contentful';
+
+import { PortfolioGrid } from '../PortfolioGrid';
+import { PortfolioGridSkeleton } from '../PortfolioGrid.skeleton';
 
 export const revalidate = ISR_REVALIDATE_TIMEOUT;
 
-async function getPortfolioItems() {
-    // TODO: Allow previewing (not supported by /app yet?)
-    const portfolioApi = new PortfolioApi();
-    const { items } = await portfolioApi.getPortfolioItems();
-    return items;
-}
-
-export default async function PortfolioPage() {
-    const items = await getPortfolioItems();
-
+export default function PortfolioPage() {
     return (
         <div className="portfolio-page">
             <Section title="Portfolio">
-                <CardGrid>
-                    {items.map((item) => (
-                        <PortfolioCard key={item.sys.id} item={item} />
-                    ))}
-                </CardGrid>
+                <Suspense fallback={<PortfolioGridSkeleton className="mb-16" count={10} />}>
+                    {/* @ts-ignore */}
+                    <PortfolioGrid />
+                </Suspense>
             </Section>
             <Section id="contacts" title="Contacts">
                 <Contacts />
