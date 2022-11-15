@@ -37,6 +37,7 @@ export function Header() {
             >
                 <ul className="flex-grow flex items-end md:items-center flex-col md:flex-row md:justify-end space-y-6 md:space-y-0 md:space-x-4 bg-white dark:bg-onyx md:bg-transparent p-6 md:p-0">
                     <NavItem href="/">Home</NavItem>
+                    <NavItem href="/blog">Blog</NavItem>
                     <NavItem href="/portfolio">Portfolio</NavItem>
                     <NavItem href="#contacts">Contact me</NavItem>
                 </ul>

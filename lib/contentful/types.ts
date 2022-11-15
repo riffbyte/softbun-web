@@ -1,5 +1,11 @@
 import type { Document } from '@contentful/rich-text-types';
 
+export interface ContentfulEnv {
+    readonly CONTENTFUL_SPACE_ID: string;
+    readonly CONTENTFUL_ACCESS_TOKEN: string;
+    readonly CONTENTFUL_PREVIEW_ACCESS_TOKEN: string;
+}
+
 export interface Tag {
     id: string;
     name: string;
