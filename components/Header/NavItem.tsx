@@ -5,11 +5,12 @@ import type { PropsWithChildren } from 'react';
 
 interface Props {
     href: string;
+    allowPartialMatch?: boolean;
 }
 
-export function NavItem({ href, children }: PropsWithChildren<Props>) {
+export function NavItem({ href, allowPartialMatch, children }: PropsWithChildren<Props>) {
     const pathname = usePathname();
-    const isActive = pathname === href;
+    const isActive = allowPartialMatch ? pathname?.startsWith(href) : pathname === href;
 
     const LinkComponent = href.startsWith('#') ? 'a' : Link;
 
