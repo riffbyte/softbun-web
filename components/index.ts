@@ -1,3 +1,4 @@
+export { AnalyticsWrapper } from './Analytics';
 export { Button, ButtonLink } from './Button';
 export { CardGrid } from './CardGrid';
 export { Contacts } from './Contacts';

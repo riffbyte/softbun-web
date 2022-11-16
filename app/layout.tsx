@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 
 import { ThemeContext } from '@/app/components/ThemeContext';
-import { Header } from '@/components';
+import { AnalyticsWrapper, Header } from '@/components';
 
 import '../styles/globals.css';
 
@@ -18,6 +18,7 @@ export default function RootLayout({ children }: PropsWithChildren<{}>) {
 
                     <main className="container flex-grow pb-20">{children}</main>
                 </ThemeContext>
+                <AnalyticsWrapper />
             </body>
         </html>
     );
