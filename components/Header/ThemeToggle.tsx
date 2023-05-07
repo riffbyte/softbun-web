@@ -2,7 +2,7 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { Moon, Sun } from 'react-feather';
 
-import { Button } from '@/components';
+import { Button } from '../Button';
 
 export function ThemeToggle() {
     const [mounted, setMounted] = useState(false);
@@ -19,13 +19,13 @@ export function ThemeToggle() {
     }, []);
 
     if (!mounted) {
-        return <div className="w-10 h-10" />;
+        return <div className="h-10 w-10" />;
     }
 
     const label = isDarkTheme ? 'Switch to light theme' : 'Switch to dark theme';
 
     return (
-        <div className="w-10 h-10 flex items-center justify-center">
+        <div className="flex h-10 w-10 items-center justify-center">
             <span className="sr-only">Current theme: {resolvedTheme}</span>
             <Button onClick={toggleTheme} variation="navigation" title={label}>
                 <span className="sr-only">{label}</span>

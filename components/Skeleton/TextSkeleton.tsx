@@ -14,7 +14,7 @@ export function TextSkeleton({ textClassName = 'text-base', className, lines = 1
     return (
         <div className={classNames(textClassName, className)}>
             {times(lines).map((line) => (
-                <div key={line} className="w-full relative flex items-center">
+                <div key={line} className="relative flex w-full items-center">
                     &nbsp;
                     <div className="absolute h-[1em] w-full rounded-lg bg-[currentColor] opacity-25" />
                 </div>

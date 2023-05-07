@@ -1,14 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap");
-
+@import "https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
     .root-container {
-        @apply min-h-screen flex flex-col;
+        @apply flex min-h-screen flex-col;
         @apply font-sans;
         @apply bg-snow text-copy-black;
         @apply dark:bg-onyx dark:text-copy-white;
@@ -29,7 +28,7 @@
     }
 
     .section-counter::before {
-        @apply text-3xl font-normal text-purple dark:text-aquamarine mr-2;
+        @apply mr-2 text-3xl font-normal text-purple dark:text-aquamarine;
 
         counter-increment: section-count;
         content: counter(section-count, decimal-leading-zero) ".";
@@ -40,8 +39,8 @@
     }
 
     .main-photo::before {
-        @apply absolute block -top-5 -right-5 w-full h-full;
-        @apply border-t-4 border-r-4 border-purple dark:border-aquamarine;
+        @apply absolute -right-5 -top-5 block h-full w-full;
+        @apply border-r-4 border-t-4 border-purple dark:border-aquamarine;
 
         content: "";
     }

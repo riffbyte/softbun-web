@@ -7,6 +7,7 @@ export function Button(props: ButtonHTMLAttributes<HTMLButtonElement> & ButtonPr
     const { className, variation, children, ...rest } = props;
 
     return (
+        // eslint-disable-next-line react/jsx-props-no-spreading
         <button className={getButtonClassName(variation, className)} {...rest}>
             {children}
         </button>

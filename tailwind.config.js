@@ -4,6 +4,9 @@ module.exports = {
     content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}'],
     theme: {
         extend: {
+            aspectRatio: {
+                featured: '3 / 2',
+            },
             colors: {
                 onyx: '#1D2C33',
                 aquamarine: '#00d1c7',
