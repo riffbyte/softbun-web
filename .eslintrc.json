@@ -1,4 +1,4 @@
 {
-  "extends": ["@prezly/eslint-config/nextjs-tailwind"],
+  "extends": ["@prezly/eslint-config/nextjs"],
   "rules": {}
 }

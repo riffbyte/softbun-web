@@ -4,10 +4,9 @@ import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 
 import { Contacts, PortfolioLinks, PortfolioTags, Section } from '@/components';
-import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
 import { PortfolioApi, renderRichText } from '@/lib/contentful';
 
-export const revalidate = ISR_REVALIDATE_TIMEOUT;
+export const revalidate = 60;
 
 async function getPortfolioItem(slug: string) {
     // TODO: Allow previewing (not supported by /app yet?)

@@ -7,10 +7,9 @@ import { CarreerListSkeleton } from '@/app/components/CarreerList.skeleton';
 import { PortfolioGrid } from '@/app/components/PortfolioGrid';
 import { PortfolioGridSkeleton } from '@/app/components/PortfolioGrid.skeleton';
 import { ButtonLink, Contacts, Section } from '@/components';
-import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
 import photo from '@/public/photo.png';
 
-export const revalidate = ISR_REVALIDATE_TIMEOUT;
+export const revalidate = 60;
 
 // TODO: Allow previewing (not supported by /app yet?)
 

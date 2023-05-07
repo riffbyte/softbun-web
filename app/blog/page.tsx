@@ -3,9 +3,8 @@ import { Suspense } from 'react';
 import { BlogGrid } from '@/app/components/BlogGrid';
 import { BlogGridSkeleton } from '@/app/components/BlogGrid.skeleton';
 import { Contacts, Section } from '@/components';
-import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
 
-export const revalidate = ISR_REVALIDATE_TIMEOUT;
+export const revalidate = 60;
 
 export default function BlogIndexPage() {
     return (

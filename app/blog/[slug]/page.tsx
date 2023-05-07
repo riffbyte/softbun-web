@@ -1,11 +1,10 @@
+import { getPrezlyApi } from '@prezly/theme-kit-core/server';
 import Image from '@prezly/uploadcare-image';
 import { notFound } from 'next/navigation';
 
 import { Contacts, Section } from '@/components';
-import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
-import { getPrezlyApi } from '@/lib/prezly/api';
 
-export const revalidate = ISR_REVALIDATE_TIMEOUT;
+export const revalidate = 60;
 
 async function getStory(slug: string) {
     const api = getPrezlyApi();

@@ -3,9 +3,8 @@ import { Suspense } from 'react';
 import { PortfolioGrid } from '@/app/components/PortfolioGrid';
 import { PortfolioGridSkeleton } from '@/app/components/PortfolioGrid.skeleton';
 import { Contacts, Section } from '@/components';
-import { ISR_REVALIDATE_TIMEOUT } from '@/lib/constants';
 
-export const revalidate = ISR_REVALIDATE_TIMEOUT;
+export const revalidate = 60;
 
 export default function PortfolioPage() {
     return (

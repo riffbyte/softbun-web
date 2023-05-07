@@ -1,7 +1,7 @@
 import type { Story } from '@prezly/sdk';
+import { getPrezlyApi } from '@prezly/theme-kit-core/server';
 
 import { CardGrid, FeaturedStoryCard, StoryCard } from '@/components';
-import { getPrezlyApi } from '@/lib/prezly/api';
 
 async function getBlogStories(): Promise<[Story | undefined, Story[]]> {
     const api = getPrezlyApi();
