@@ -53,7 +53,7 @@ export default function HomePage() {
 
             <Section title="Portfolio" counter>
                 <Suspense fallback={<PortfolioGridSkeleton className="mb-16" />}>
-                    {/* @ts-ignore */}
+                    {/* @ts-expect-error */}
                     <PortfolioGrid className="mb-16" featured />
                 </Suspense>
                 <ButtonLink href="/portfolio" variation="primary">
@@ -64,7 +64,7 @@ export default function HomePage() {
 
             <Section title="Career" counter>
                 <Suspense fallback={<CarreerListSkeleton />}>
-                    {/* @ts-ignore */}
+                    {/* @ts-expect-error */}
                     <CarreerList />
                 </Suspense>
             </Section>

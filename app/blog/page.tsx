@@ -11,7 +11,7 @@ export default function BlogIndexPage() {
         <div className="blog-page">
             <Section>
                 <Suspense fallback={<BlogGridSkeleton />}>
-                    {/* @ts-ignore */}
+                    {/* @ts-expect-error */}
                     <BlogGrid />
                 </Suspense>
             </Section>

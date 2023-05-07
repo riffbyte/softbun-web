@@ -11,7 +11,7 @@ export default function PortfolioPage() {
         <div className="portfolio-page">
             <Section title="Portfolio">
                 <Suspense fallback={<PortfolioGridSkeleton className="mb-16" count={10} />}>
-                    {/* @ts-ignore */}
+                    {/* @ts-expect-error */}
                     <PortfolioGrid />
                 </Suspense>
             </Section>

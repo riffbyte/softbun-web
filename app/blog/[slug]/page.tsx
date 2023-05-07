@@ -22,7 +22,6 @@ export default async function StoryPage({ params }: { params?: Partial<Params> }
 
     if (!story) {
         notFound();
-        return null;
     }
 
     const { title, subtitle, content, header_image } = story;
