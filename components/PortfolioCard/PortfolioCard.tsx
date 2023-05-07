@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 
-import { PortfolioLinks, PortfolioTags } from '@/components';
 import type { PortfolioItem } from '@/lib/contentful';
+
+import { PortfolioLinks } from '../PortfolioLinks';
+import { PortfolioTags } from '../PortfolioTags';
 
 interface Props {
     item: PortfolioItem;
@@ -26,6 +28,7 @@ export function PortfolioCard({ item }: Props) {
                 className="prose dark:prose-invert mb-6"
                 linkTarget="_blank"
                 components={{
+                    // eslint-disable-next-line react/jsx-props-no-spreading
                     a: (props) => <a {...props} className="relative z-10" />,
                 }}
             >

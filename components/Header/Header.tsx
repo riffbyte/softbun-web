@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { useState } from 'react';
 import { Menu, X } from 'react-feather';
 
-import { Button } from '@/components';
+import { Button } from '../Button';
 
 import { NavItem } from './NavItem';
 import { ThemeToggle } from './ThemeToggle';

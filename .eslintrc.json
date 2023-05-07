@@ -1,4 +1,12 @@
 {
   "extends": ["@prezly/eslint-config/nextjs"],
-  "rules": {}
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["app/**/{page,layout,head,not-found}.tsx"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    }
+  ]
 }

@@ -2,7 +2,7 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { Moon, Sun } from 'react-feather';
 
-import { Button } from '@/components';
+import { Button } from '../Button';
 
 export function ThemeToggle() {
     const [mounted, setMounted] = useState(false);

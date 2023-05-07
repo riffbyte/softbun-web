@@ -1,4 +1,4 @@
-import { CardSkeleton, TextSkeleton } from '@/components';
+import { CardSkeleton, TextSkeleton } from '../Skeleton';
 
 export function FeaturedStoryCardSkeleton() {
     return (

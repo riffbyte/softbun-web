@@ -1,4 +1,4 @@
-import { CardSkeleton, TagsSkeleton, TextSkeleton } from '@/components';
+import { CardSkeleton, TagsSkeleton, TextSkeleton } from '../Skeleton';
 
 export function PortfolioCardSkeleton() {
     return (
