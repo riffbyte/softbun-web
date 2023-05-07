@@ -6,7 +6,7 @@ export function CardSkeleton({ children, className }: PropsWithChildren<{ classN
         <div
             role="status"
             className={classNames(
-                'block relative text-left p-8 pt-6 bg-white rounded-3xl shadow-lg dark:bg-label-dark dark:bg-opacity-50 dark:shadow-none dark:text-copy-white animate-pulse',
+                'relative block animate-pulse rounded-3xl bg-white p-8 pt-6 text-left shadow-lg dark:bg-label-dark dark:bg-opacity-50 dark:text-copy-white dark:shadow-none',
                 className,
             )}
         >

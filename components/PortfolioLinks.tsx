@@ -25,7 +25,7 @@ export function PortfolioLinks({ item, className, extended }: Props) {
     const iconClassName = classNames({ 'w-8 h-8': !extended, 'w-6 h-6': extended });
 
     return (
-        <div className={classNames('h-10 flex flex-wrap gap-3', className)}>
+        <div className={classNames('flex h-10 flex-wrap gap-3', className)}>
             {gitHubLink && (
                 <a
                     href={gitHubLink}

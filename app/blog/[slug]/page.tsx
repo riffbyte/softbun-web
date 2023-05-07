@@ -41,11 +41,11 @@ export default async function StoryPage({ params }: { params?: Partial<Params> }
                         imageDetails={headerImage}
                     />
                 )}
-                <div className="md:max-w-3xl md:mx-auto py-8 md:px-8 lg:px-16 lg:max-w-4xl bg-white dark:bg-onyx">
-                    <h1 className="text-6xl font-bold mb-8">{title}</h1>
+                <div className="bg-white py-8 dark:bg-onyx md:mx-auto md:max-w-3xl md:px-8 lg:max-w-4xl lg:px-16">
+                    <h1 className="mb-8 text-6xl font-bold">{title}</h1>
                     {subtitle && <h2 className="text-3xl font-bold">{subtitle}</h2>}
 
-                    <div className="prose dark:prose-invert mt-8 max-w-none">
+                    <div className="prose mt-8 max-w-none dark:prose-invert">
                         <BlogPostContent story={story} />
                     </div>
                 </div>

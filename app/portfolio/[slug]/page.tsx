@@ -32,10 +32,10 @@ export default async function PortfolioItemPage({ params }: { params?: Partial<P
     return (
         <div className="portfolio-item-page">
             <Section>
-                <div className="lg:grid grid-cols-2 gap-8">
+                <div className="grid-cols-2 gap-8 lg:grid">
                     <div>
-                        <h1 className="text-6xl font-bold my-8">{title}</h1>
-                        <ReactMarkdown className="mb-3 prose dark:prose-invert">
+                        <h1 className="my-8 text-6xl font-bold">{title}</h1>
+                        <ReactMarkdown className="prose mb-3 dark:prose-invert">
                             {description}
                         </ReactMarkdown>
 
@@ -44,7 +44,7 @@ export default async function PortfolioItemPage({ params }: { params?: Partial<P
                         <PortfolioLinks item={item} className="mt-6" extended />
                     </div>
                     {coverImage && (
-                        <div className="relative mt-6 lg:mt-0 flex justify-center items-center">
+                        <div className="relative mt-6 flex items-center justify-center lg:mt-0">
                             <Image
                                 src={coverImage.url}
                                 alt={title}

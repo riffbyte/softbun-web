@@ -32,7 +32,7 @@ export function Section({
         >
             {title && (
                 <h2
-                    className={classNames('text-4xl font-mono font-bold mb-10', {
+                    className={classNames('mb-10 font-mono text-4xl font-bold', {
                         'section-counter': counter,
                     })}
                 >
@@ -47,7 +47,7 @@ export function Section({
                 {children}
             </div>
             {title && (
-                <p className="text-2xl text-copy-gray text-right font-mono font-bold mt-20">
+                <p className="mt-20 text-right font-mono text-2xl font-bold text-copy-gray">
                     &lt;/{title}&gt;
                 </p>
             )}

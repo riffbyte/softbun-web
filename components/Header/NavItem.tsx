@@ -19,9 +19,9 @@ export function NavItem({ href, allowPartialMatch, children }: PropsWithChildren
             <LinkComponent
                 href={href}
                 className={classNames(
-                    'font-mono text-lg p-2 hover:text-purple dark:hover:text-aquamarine',
+                    'p-2 font-mono text-lg hover:text-purple dark:hover:text-aquamarine',
                     {
-                        'relative after:content=[""] after:absolute after:bottom-1 after:left-1 after:right-1 after:h-[2px] after:bg-purple dark:after:bg-aquamarine':
+                        'after:content=[""] relative after:absolute after:bottom-1 after:left-1 after:right-1 after:h-[2px] after:bg-purple dark:after:bg-aquamarine':
                             isActive,
                     },
                 )}

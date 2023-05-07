@@ -16,11 +16,11 @@ export function FeaturedStoryCard({ story }: Props) {
     } = story.oembed;
 
     return (
-        <div className="group mb-10 relative text-left bg-white rounded-3xl overflow-hidden shadow-lg dark:bg-label-dark dark:bg-opacity-50 dark:shadow-none dark:text-copy-white md:grid md:grid-cols-2 md:gap-10">
+        <div className="group relative mb-10 overflow-hidden rounded-3xl bg-white text-left shadow-lg dark:bg-label-dark dark:bg-opacity-50 dark:text-copy-white dark:shadow-none md:grid md:grid-cols-2 md:gap-10">
             <div className="mb-4 md:mb-0">
                 {coverImageUrl && (
                     <Image
-                        className="block w-full aspect-featured object-cover"
+                        className="block aspect-featured w-full object-cover"
                         src={coverImageUrl}
                         alt={title}
                         width={coverImageWidth}
@@ -31,10 +31,10 @@ export function FeaturedStoryCard({ story }: Props) {
                 )}
             </div>
             <div className="p-6">
-                <h2 className="text-4xl font-display mb-5 group-hover:text-purple dark:group-hover:text-aquamarine">
+                <h2 className="mb-5 font-display text-4xl group-hover:text-purple dark:group-hover:text-aquamarine">
                     <Link
                         href={`/blog/${slug}`}
-                        className="before:content-[''] before:absolute before:left-0 before:right-0 before:top-0 before:bottom-0 before:cursor-pointer"
+                        className="before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:cursor-pointer before:content-['']"
                     >
                         {title}
                     </Link>

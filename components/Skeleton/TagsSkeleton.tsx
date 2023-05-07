@@ -14,8 +14,8 @@ export function TagsSkeleton({ className, count = 3 }: Props) {
                     key={tag}
                     className={classNames(
                         `
-                            px-2 py-1 text-sm rounded-full 
-                            bg-label-light dark:bg-label-dark whitespace-nowrap
+                            whitespace-nowrap rounded-full bg-label-light px-2 
+                            py-1 text-sm dark:bg-label-dark
                         `,
                         index % 2 === 0 ? 'w-[120px]' : 'w-[150px]',
                     )}

@@ -17,20 +17,20 @@ export default function HomePage() {
     return (
         <div className="home-page">
             <Section expanded>
-                <div className="md:flex md:space-x-16 mb-16">
+                <div className="mb-16 md:flex md:space-x-16">
                     <div className="md:self-end">
                         <p className="text-2xl text-purple dark:text-aquamarine">
                             Hello there! My name is
                         </p>
-                        <h1 className="text-6xl md:text-8xl font-display mt-4 mb-8">
+                        <h1 className="mb-8 mt-4 font-display text-6xl md:text-8xl">
                             Oleg Semyonov
                         </h1>
-                        <h2 className="text-3xl md:text-4xl font-bold text-copy-gray">
+                        <h2 className="text-3xl font-bold text-copy-gray md:text-4xl">
                             I build applications for the web
                         </h2>
                     </div>
 
-                    <div className="hidden md:block w-72 h-72 main-photo">
+                    <div className="main-photo hidden h-72 w-72 md:block">
                         <Image src={photo} alt="Portrait photo" priority />
                     </div>
                 </div>
@@ -43,7 +43,7 @@ export default function HomePage() {
                         href="https://prezly.com/"
                         target="_blank"
                         rel="noreferrer"
-                        className="text-purple dark:text-aquamarine hover:underline"
+                        className="text-purple hover:underline dark:text-aquamarine"
                     >
                         Prezly
                     </a>

@@ -2,7 +2,7 @@ import { GitHub, Linkedin, Send, Twitter } from 'react-feather';
 
 export function Contacts() {
     return (
-        <ul className="flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10">
+        <ul className="flex flex-col space-y-10 md:flex-row md:space-x-10 md:space-y-0">
             <li>
                 <a
                     href="https://t.me/SatoAV"

@@ -18,8 +18,8 @@ export function PortfolioTags({ tags, className }: Props) {
                 <div
                     key={tag.id}
                     className={`
-                        px-2 py-1 text-sm font-mono rounded-full 
-                        bg-label-light dark:bg-label-dark whitespace-nowrap
+                        whitespace-nowrap rounded-full bg-label-light px-2 py-1 
+                        font-mono text-sm dark:bg-label-dark
                     `}
                 >
                     {tag.name}
