@@ -2,6 +2,7 @@ import { getPrezlyApi } from '@prezly/theme-kit-core/server';
 import Image from '@prezly/uploadcare-image';
 import { notFound } from 'next/navigation';
 
+import { BlogPostContent } from '@/app/components/BlogPostContent';
 import { Contacts, Section } from '@/components';
 
 export const revalidate = 60;
@@ -24,7 +25,7 @@ export default async function StoryPage({ params }: { params?: Partial<Params> }
         notFound();
     }
 
-    const { title, subtitle, content, header_image } = story;
+    const { title, subtitle, header_image } = story;
     const headerImage = header_image ? JSON.parse(header_image) : null;
 
     return (
@@ -43,8 +44,10 @@ export default async function StoryPage({ params }: { params?: Partial<Params> }
                 <h2 className="text-3xl font-bold">{subtitle}</h2>
             </Section>
 
-            <div className="max-w-4xl">
-                <Section prose>{content}</Section>
+            <div className="max-w-4xl mx-auto">
+                <Section prose centered>
+                    <BlogPostContent story={story} />
+                </Section>
             </div>
 
             <Section id="contacts" title="Contacts">

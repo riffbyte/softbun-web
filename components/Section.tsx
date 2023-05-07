@@ -8,6 +8,7 @@ interface Props {
     expanded?: boolean;
     counter?: boolean;
     prose?: boolean;
+    centered?: boolean;
 }
 
 export function Section({
@@ -18,6 +19,7 @@ export function Section({
     expanded,
     counter,
     prose,
+    centered,
 }: PropsWithChildren<Props>) {
     return (
         <section
@@ -37,7 +39,13 @@ export function Section({
                     &lt;{title}&gt;
                 </h2>
             )}
-            {prose ? <div className="prose dark:prose-invert">{children}</div> : children}
+            {prose ? (
+                <div className={classNames('prose dark:prose-invert', { 'mx-auto': centered })}>
+                    {children}
+                </div>
+            ) : (
+                children
+            )}
             {title && (
                 <p className="text-2xl text-copy-gray text-right font-mono font-bold mt-20">
                     &lt;/{title}&gt;

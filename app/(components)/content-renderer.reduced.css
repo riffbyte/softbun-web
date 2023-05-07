@@ -1,0 +1,985 @@
+/**
+  * Pulled from @prezly/content-renderer-react-js/styles.css with all text styling removed
+  */
+
+.prezly-slate-bookmark-card-component__container {
+    display: flex;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    justify-content: stretch;
+    overflow: hidden;
+}
+.prezly-slate-bookmark-card-component__container.vertical {
+    flex-flow: column;
+}
+.prezly-slate-bookmark-card-component__container.horizontal {
+    flex-flow: row;
+}
+.prezly-slate-bookmark-card-component__thumbnail {
+    background-position: center center;
+    background-size: cover;
+    flex-grow: 0;
+}
+.vertical .prezly-slate-bookmark-card-component__thumbnail {
+    padding-bottom: 50%;
+    height: 0;
+    position: relative;
+}
+.horizontal .prezly-slate-bookmark-card-component__thumbnail {
+    min-width: 180px;
+    min-height: 180px;
+    max-width: 180px;
+}
+.prezly-slate-bookmark-card-component__thumbnailImage {
+    visibility: hidden;
+}
+.vertical .prezly-slate-bookmark-card-component__thumbnailImage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.horizontal .prezly-slate-bookmark-card-component__thumbnailImage {
+    width: 100%;
+    height: 100%;
+}
+.prezly-slate-bookmark-card-component__details {
+    padding: 16px 24px;
+    flex-grow: 1;
+    min-width: 0;
+}
+.prezly-slate-bookmark-card-component__title {
+    font-weight: 800;
+    line-height: 1.6;
+    margin: 0 0 8px 0;
+    color: #374151;
+}
+.prezly-slate-bookmark-card-component__title,
+.prezly-slate-bookmark-card-component__title--short-title {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.prezly-slate-bookmark-card-component__title--short-description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+.prezly-slate-bookmark-card-component__title,
+.prezly-slate-bookmark-card-component__title:hover {
+    text-decoration: none;
+}
+.prezly-slate-bookmark-card-component__title:hover {
+    color: #1f2937;
+}
+.vertical .prezly-slate-bookmark-card-component__title {
+    font-size: 22px;
+}
+.horizontal .prezly-slate-bookmark-card-component__title {
+    font-size: 18px;
+}
+.prezly-slate-bookmark-card-component__description {
+    color: #6b7280;
+    margin: 8px 0;
+    line-height: 1.4;
+}
+.prezly-slate-bookmark-card-component__description,
+.prezly-slate-bookmark-card-component__description--short-description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.prezly-slate-bookmark-card-component__description--short-title {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+}
+.vertical .prezly-slate-bookmark-card-component__description {
+    font-size: 16px;
+}
+.horizontal .prezly-slate-bookmark-card-component__description {
+    font-size: 14px;
+}
+.prezly-slate-bookmark-card-component__provider {
+    display: flex;
+    align-items: center;
+    color: #374151;
+    font-weight: 600;
+}
+.vertical .prezly-slate-bookmark-card-component__provider {
+    margin-top: 13px;
+    font-size: 16px;
+}
+.horizontal .prezly-slate-bookmark-card-component__provider {
+    margin-top: 16px;
+}
+.prezly-slate-bookmark-card-component__provider:first-child {
+    margin-top: 0;
+}
+.prezly-slate-bookmark-card-component__provider,
+.prezly-slate-bookmark-card-component__provider:hover {
+    text-decoration: none;
+}
+.prezly-slate-bookmark-card-component__provider:hover {
+    color: #1f2937;
+}
+.prezly-slate-bookmark-card-component__providerIcon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    image-rendering: -webkit-optimize-contrast;
+}
+.prezly-slate-bookmark-card-component__providerName {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.ReactModal__Body--open {
+    overflow: hidden;
+}
+
+.prezly-slate-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    outline: none;
+    background-color: white;
+}
+.prezly-slate-lightbox__figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+}
+@media (max-width: 767px) {
+    .prezly-slate-lightbox__figure {
+        padding: 8px;
+    }
+}
+.prezly-slate-lightbox__image-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow-y: hidden;
+    margin: 24px auto;
+}
+.prezly-slate-lightbox__image-container:hover .prezly-slate-lightbox__actions {
+    opacity: 1;
+}
+.prezly-slate-lightbox__image {
+    max-height: 100%;
+}
+.prezly-slate-lightbox__actions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 0;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+.prezly-slate-lightbox__actions:focus-within {
+    opacity: 1;
+}
+.prezly-slate-lightbox__download,
+.prezly-slate-lightbox__pinterest {
+    margin: 0 8px;
+}
+.prezly-slate-lightbox__download {
+    padding: 0;
+    border: none;
+    outline: none;
+    font: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 8px 24px;
+    background-color: #3c91ff;
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 22px;
+    text-decoration: none;
+}
+.prezly-slate-lightbox__download:disabled {
+    cursor: not-allowed;
+}
+.prezly-slate-lightbox__download:active {
+    padding-top: 9px;
+    padding-bottom: 7px;
+}
+.prezly-slate-lightbox__download:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.prezly-slate-lightbox__download:hover {
+    background-color: #137aff;
+}
+.prezly-slate-lightbox__pinterest {
+    width: 38px;
+    height: 38px;
+}
+.prezly-slate-lightbox__caption {
+    flex: 0 0 auto;
+    margin: 24px;
+    margin-top: 0;
+    line-height: 22px;
+    font-size: 16px;
+    font-style: italic;
+    text-align: center;
+    color: #757777;
+}
+.prezly-slate-lightbox__caption:empty {
+    display: none;
+}
+@media (max-width: 767px) {
+    .prezly-slate-lightbox__caption {
+        padding: 24px 8px;
+    }
+}
+.prezly-slate-lightbox__close {
+    padding: 0;
+    border: none;
+    outline: none;
+    font: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 56px;
+    height: 56px;
+    z-index: 1;
+    padding: 16px;
+    color: #3c91ff;
+}
+.prezly-slate-lightbox__close:disabled {
+    cursor: not-allowed;
+}
+.prezly-slate-lightbox__close:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.prezly-slate-lightbox__close:hover {
+    color: #137aff;
+}
+.prezly-slate-lightbox__close-icon {
+    width: 24px;
+    height: 24px;
+}
+.prezly-slate-lightbox__nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+}
+.prezly-slate-lightbox__nav-button {
+    padding: 0;
+    border: none;
+    outline: none;
+    font: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 40px 8px;
+    z-index: 1;
+}
+.prezly-slate-lightbox__nav-button:disabled {
+    cursor: not-allowed;
+}
+.prezly-slate-lightbox__nav-button:active .prezly-slate-lightbox__nav-button-icon {
+    position: relative;
+    top: 1px;
+}
+.prezly-slate-lightbox__nav-button:disabled {
+    visibility: hidden;
+}
+.prezly-slate-lightbox__nav-button:focus-within {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.prezly-slate-lightbox__nav-button-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.prezly-slate-media {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+@media print {
+    .prezly-slate-media--image {
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+.prezly-slate-pinterest-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+}
+.prezly-slate-pinterest-button:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.prezly-slate-pinterest-button__icon {
+    width: 100%;
+    height: 100%;
+}
+
+.prezly-slate-image-rollover {
+    position: relative;
+}
+.prezly-slate-image-rollover:focus-within {
+    z-index: 1;
+}
+.prezly-slate-image-rollover:focus-within .prezly-slate-image-rollover__content {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.prezly-slate-image-rollover:focus-within .prezly-slate-image-rollover__dim,
+.prezly-slate-image-rollover:hover .prezly-slate-image-rollover__dim {
+    opacity: 0.9;
+}
+.prezly-slate-image-rollover:focus-within .prezly-slate-image-rollover__caption,
+.prezly-slate-image-rollover:hover .prezly-slate-image-rollover__caption {
+    opacity: 1;
+}
+.prezly-slate-image-rollover__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+.prezly-slate-image-rollover__dim {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-color: #fff;
+    opacity: 0;
+    transition: opacity linear 150ms;
+}
+.prezly-slate-image-rollover__caption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity linear 150ms;
+    font-size: 14px;
+    text-align: center;
+}
+.prezly-slate-image-rollover__caption--empty .prezly-slate-image-rollover__caption-icon-container {
+    margin-bottom: auto;
+}
+.prezly-slate-image-rollover__caption--empty .prezly-slate-image-rollover__caption-text {
+    display: none;
+}
+.prezly-slate-image-rollover__caption-icon-container {
+    display: flex;
+    margin-top: auto;
+    padding: 8px;
+    background-color: #0082db;
+    color: #fff;
+    border-radius: 50%;
+}
+@media (max-width: 991px) {
+    .prezly-slate-image-rollover__caption-icon-container {
+        margin-bottom: auto;
+    }
+}
+.prezly-slate-image-rollover__caption-icon {
+    width: 20px;
+    height: 20px;
+}
+.prezly-slate-image-rollover__caption-text {
+    display: block;
+    width: 100%;
+    height: 50%;
+    padding: 8px;
+    padding-top: 16px;
+    font-size: 14px;
+}
+@media (max-width: 991px) {
+    .prezly-slate-image-rollover__caption-text {
+        display: none;
+    }
+}
+
+.prezly-slate-attachment {
+    display: block;
+    margin: 40px 0;
+    border: 1px solid #ececec;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+    text-decoration: none;
+}
+.prezly-slate-attachment:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.prezly-slate-attachment:hover {
+    text-decoration: none;
+}
+.prezly-slate-attachment__content {
+    display: flex;
+    align-items: center;
+}
+.prezly-slate-attachment__icon-container {
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
+    color: black;
+    border: 1px solid #ececec;
+    border-radius: 4px;
+    margin-left: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.prezly-slate-attachment__icon {
+    height: 22px;
+    width: 22px;
+}
+.prezly-slate-attachment__details {
+    flex: 1;
+    padding: 24px;
+}
+.prezly-slate-attachment__title {
+    margin-bottom: 8px;
+    color: #333;
+    line-height: 28px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.prezly-slate-attachment__subtitle {
+    color: #757777;
+    font-size: 14px;
+}
+
+.prezly-slate-contact {
+    margin: 40px 0;
+    border: 1px solid #ececec;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+    color: #333;
+}
+.prezly-slate-contact__wrapper {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    grid-column-gap: 24px;
+    padding: 24px;
+}
+.prezly-slate-contact__name {
+    margin: 0;
+    margin-bottom: 8px;
+    line-height: 28px;
+    font-size: 24px;
+}
+.prezly-slate-contact__job-description {
+    margin-bottom: 16px;
+}
+.prezly-slate-contact__avatar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 64px;
+    align-items: center;
+    border-radius: 4px;
+    border: 1px solid #ececec;
+    grid-row: 1;
+    grid-column: 1;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.prezly-slate-contact__avatar-image {
+    width: 100%;
+    height: 100%;
+}
+.prezly-slate-contact__avatar-image--empty {
+    width: 24px;
+    height: 24px;
+}
+.prezly-slate-contact__content {
+    grid-row: 1;
+    grid-column: 2;
+    overflow: hidden;
+}
+.prezly-slate-contact__social-fields {
+    flex: 1;
+    margin: 0;
+    margin-top: 16px;
+}
+
+.prezly-slate-social-field {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    line-height: 22px;
+    font-size: 14px;
+    list-style: none;
+}
+.prezly-slate-social-field__link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+    padding: 0 4px;
+    border-radius: 4px;
+}
+.prezly-slate-social-field__link,
+.prezly-slate-social-field__link:active,
+.prezly-slate-social-field__link:focus,
+.prezly-slate-social-field__link:hover,
+.prezly-slate-social-field__link:visited {
+    color: inherit;
+}
+.prezly-slate-social-field__link:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.prezly-slate-social-field__link:hover {
+    text-decoration: underline;
+}
+.prezly-slate-social-field__icon {
+    flex: 0 0 auto;
+    width: 16px;
+    height: 16px;
+    margin-right: 12px;
+}
+.prezly-slate-social-field__value {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.prezly-slate-social-fields {
+    margin: 0;
+    padding: 0;
+    -moz-columns: 2;
+    columns: 2;
+}
+@media (max-width: 480px) {
+    .prezly-slate-social-fields {
+        -moz-columns: 1;
+        columns: 1;
+    }
+}
+.prezly-slate-social-fields__field {
+    margin-bottom: 4px;
+    padding: 2px;
+}
+
+.prezly-slate-bookmark {
+    margin: 40px 0;
+}
+
+.prezly-slate-divider {
+    margin: 40px 0;
+    border: none;
+    border-top: 1px solid #c4c4c4;
+}
+
+.prezly-slate-embed {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0;
+}
+.prezly-slate-embed:focus-within {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.prezly-slate-embed__screenshot {
+    flex: 1;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.prezly-slate-iframely-embed {
+    width: 100%;
+}
+.prezly-slate-iframely-embed--error {
+    color: #982828;
+    border: 1px solid #982828;
+    border-radius: 4px;
+}
+.prezly-slate-iframely-embed blockquote {
+    border-left: none;
+}
+
+.prezly-slate-link-embed {
+    padding: 24px;
+    border: 1px solid #ececec;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+    text-decoration: none;
+}
+.prezly-slate-link-embed,
+.prezly-slate-link-embed:hover {
+    color: #333;
+}
+.prezly-slate-link-embed__title,
+.prezly-slate-link-embed__url {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+.prezly-slate-link-embed__title {
+    margin-bottom: 8px;
+    line-height: 28px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.prezly-slate-link-embed__url {
+    font-size: 14px;
+    color: #757777;
+}
+
+.prezly-slate-screenshot-embed {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.prezly-slate-gallery {
+    margin: 40px 0;
+    white-space: normal;
+    text-align: center;
+}
+.prezly-slate-gallery--contained {
+    margin-left: auto;
+    margin-right: auto;
+}
+.prezly-slate-gallery--expanded {
+    width: 120%;
+    margin-left: -10%;
+}
+[dir="rtl"] .prezly-slate-gallery--expanded {
+    margin-left: initial;
+    margin-right: -10%;
+}
+@media (max-width: 992px) {
+    .prezly-slate-gallery--expanded {
+        position: relative;
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw !important;
+        margin-right: -50vw !important;
+    }
+}
+.prezly-slate-gallery--full-width {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+}
+.prezly-slate-gallery__images {
+    margin: -1px;
+}
+.prezly-slate-gallery__row {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.prezly-slate-gallery-image--with-border-radius,
+.prezly-slate-gallery-image--with-border-radius .prezly-slate-gallery-image__media {
+    border-radius: 2px;
+}
+.prezly-slate-gallery-image__media {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    font-family: "object-fit: cover;";
+}
+
+.prezly-slate-heading--align-left {
+    text-align: left;
+}
+.prezly-slate-heading--align-center {
+    text-align: center;
+}
+.prezly-slate-heading--align-right {
+    text-align: right;
+}
+
+.prezly-slate-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0;
+    white-space: normal;
+    text-align: center;
+}
+.prezly-slate-image--contained {
+    margin-left: auto;
+    margin-right: auto;
+}
+.prezly-slate-image--align-left {
+    align-items: flex-start;
+}
+.prezly-slate-image--align-right {
+    align-items: flex-end;
+}
+.prezly-slate-image--expanded {
+    width: 120%;
+    margin-left: -10%;
+}
+[dir="rtl"] .prezly-slate-image--expanded {
+    margin-left: initial;
+    margin-right: -10%;
+}
+@media (max-width: 992px) {
+    .prezly-slate-image--expanded {
+        position: relative;
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw !important;
+        margin-right: -50vw !important;
+    }
+}
+.prezly-slate-image--expanded .prezly-slate-image__link,
+.prezly-slate-image--expanded .prezly-slate-image__media,
+.prezly-slate-image--expanded video,
+.prezly-slate-image--expanded img {
+    width: 100%;
+}
+.prezly-slate-image--full-width {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+}
+.prezly-slate-image--full-width .prezly-slate-image__link,
+.prezly-slate-image--full-width .prezly-slate-image__media,
+.prezly-slate-image--full-width video,
+.prezly-slate-image--full-width img {
+    width: 100%;
+}
+.prezly-slate-image--gif {
+    display: block;
+}
+.prezly-slate-image__link {
+    position: relative;
+    z-index: 0;
+    display: block;
+    text-decoration: none;
+}
+.prezly-slate-image__link:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.prezly-slate-image__caption {
+    display: block;
+    padding: 12px 24px;
+    padding-bottom: 0;
+    color: #757777;
+    font-style: italic;
+    font-size: 14px;
+    text-align: center;
+    word-break: normal;
+    overflow-wrap: anywhere;
+}
+.prezly-slate-image--align-left .prezly-slate-image__caption {
+    padding-left: 0;
+    text-align: left;
+}
+.prezly-slate-image--align-right .prezly-slate-image__caption {
+    padding-right: 0;
+    text-align: right;
+}
+.prezly-slate-image__caption:empty {
+    display: none;
+}
+
+.prezly-slate-list--align-left,
+.prezly-slate-list--align-right,
+.prezly-slate-list--align-center {
+    list-style-position: inside;
+}
+.prezly-slate-list--align-left {
+    text-align: left;
+}
+.prezly-slate-list--align-center {
+    text-align: center;
+}
+.prezly-slate-list--align-right {
+    text-align: right;
+}
+
+.prezly-slate-paragraph--align-left {
+    text-align: left;
+}
+.prezly-slate-paragraph--align-center {
+    text-align: center;
+}
+.prezly-slate-paragraph--align-right {
+    text-align: right;
+}
+
+.prezly-slate-quote {
+    margin: 24px 0;
+    padding: 20px;
+    border-left: 4px solid #c4c4c4;
+    color: #757777;
+    font-size: 16px;
+    line-height: 22px;
+    font-style: italic;
+}
+.prezly-slate-quote--align-left {
+    text-align: left;
+}
+.prezly-slate-quote--align-center {
+    text-align: center;
+}
+.prezly-slate-quote--align-right {
+    text-align: right;
+}
+
+.prezly-slate-story-bookmark {
+    margin: 40px 0;
+}
+
+.prezly-slate-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+.prezly-slate-table--withBorders .prezly-slate-table-row,
+.prezly-slate-table--withBorders .prezly-slate-table-cell {
+    border: 1px solid #d1d5db;
+}
+
+.prezly-slate-table-row {
+    color: #374151;
+    font-size: 14px;
+}
+
+.prezly-slate-table-cell {
+    min-width: 40px;
+    min-height: 40px;
+    padding: 12px;
+    outline: none !important;
+    text-align: left;
+    vertical-align: middle;
+}
+.prezly-slate-table-cell > *:first-child {
+    margin-top: 0;
+}
+.prezly-slate-table-cell > *:last-child {
+    margin-bottom: 0;
+}
+.prezly-slate-table-cell--header {
+    background: #f3f4f6;
+}
+.prezly-slate-table-cell--header > p {
+    font-weight: 600;
+}
+
+.prezly-slate-video {
+    margin: 40px 0;
+    position: relative;
+    white-space: normal;
+}
+.prezly-slate-video__thumbnail {
+    height: 0;
+    position: relative;
+}
+.prezly-slate-video__thumbnail-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+}
+.prezly-slate-video__thumbnail-placeholder {
+    max-width: 100%;
+    height: 0;
+    background: #757777;
+    padding-bottom: 56%;
+    opacity: 0.24;
+}
+.prezly-slate-video__play-button-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.prezly-slate-video__play-button-icon {
+    width: 80px;
+    height: 80px;
+}
