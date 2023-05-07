@@ -2,12 +2,11 @@
 const nextConfig = {
     reactStrictMode: true,
     eslint: {
-        dirs: ['components', 'lib', 'modules', 'pages'],
+        dirs: ['app', 'components', 'lib'],
     },
     images: {
         domains: ['images.ctfassets.net', 'cdn.uc.assets.prezly.com'],
     },
-    experimental: { appDir: true },
 };
 
 module.exports = nextConfig;
