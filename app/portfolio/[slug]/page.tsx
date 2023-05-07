@@ -9,7 +9,7 @@ import { PortfolioApi, renderRichText } from '@/lib/contentful';
 export const revalidate = 60;
 
 async function getPortfolioItem(slug: string) {
-    // TODO: Allow previewing (not supported by /app yet?)
+    // TODO: Allow previewing. See https://nextjs.org/docs/app/building-your-application/configuring/draft-mode
     const portfolioApi = new PortfolioApi();
 
     return portfolioApi.getPortfolioItemBySlug(slug);

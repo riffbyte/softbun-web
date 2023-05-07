@@ -11,7 +11,7 @@ import photo from '@/public/photo.png';
 
 export const revalidate = 60;
 
-// TODO: Allow previewing (not supported by /app yet?)
+// TODO: Allow previewing. See https://nextjs.org/docs/app/building-your-application/configuring/draft-mode
 
 export default function HomePage() {
     return (
