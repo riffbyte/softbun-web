@@ -34,21 +34,22 @@ export default async function StoryPage({ params }: { params?: Partial<Params> }
                 {headerImage && (
                     <Image
                         alt=""
-                        className="mb-10 rounded-lg shadow-xl dark:shadow-none"
+                        containerClassName="relative z-1"
+                        className="rounded-lg shadow-xl dark:shadow-none"
                         objectFit="cover"
                         layout="fill"
                         imageDetails={headerImage}
                     />
                 )}
-                <h1 className="text-6xl font-bold my-8">{title}</h1>
-                <h2 className="text-3xl font-bold">{subtitle}</h2>
-            </Section>
+                <div className="md:max-w-3xl md:mx-auto py-8 md:px-8 lg:px-16 lg:max-w-4xl bg-white dark:bg-onyx">
+                    <h1 className="text-6xl font-bold mb-8">{title}</h1>
+                    {subtitle && <h2 className="text-3xl font-bold">{subtitle}</h2>}
 
-            <div className="max-w-4xl mx-auto">
-                <Section prose centered>
-                    <BlogPostContent story={story} />
-                </Section>
-            </div>
+                    <div className="prose dark:prose-invert mt-8 max-w-none">
+                        <BlogPostContent story={story} />
+                    </div>
+                </div>
+            </Section>
 
             <Section id="contacts" title="Contacts">
                 <Contacts />

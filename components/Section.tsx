@@ -5,10 +5,10 @@ interface Props {
     id?: string;
     title?: string;
     className?: string;
+    contentClassName?: string;
     expanded?: boolean;
     counter?: boolean;
     prose?: boolean;
-    centered?: boolean;
 }
 
 export function Section({
@@ -16,10 +16,10 @@ export function Section({
     id,
     title,
     className,
+    contentClassName,
     expanded,
     counter,
     prose,
-    centered,
 }: PropsWithChildren<Props>) {
     return (
         <section
@@ -39,13 +39,13 @@ export function Section({
                     &lt;{title}&gt;
                 </h2>
             )}
-            {prose ? (
-                <div className={classNames('prose dark:prose-invert', { 'mx-auto': centered })}>
-                    {children}
-                </div>
-            ) : (
-                children
-            )}
+            <div
+                className={classNames(contentClassName, {
+                    'prose dark:prose-invert': prose,
+                })}
+            >
+                {children}
+            </div>
             {title && (
                 <p className="text-2xl text-copy-gray text-right font-mono font-bold mt-20">
                     &lt;/{title}&gt;
